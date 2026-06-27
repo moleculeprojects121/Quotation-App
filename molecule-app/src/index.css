@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f1f5f9;
+  font-size: 0.8125rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.header-font {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Premium custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: rgba(241,245,249,0.5); }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* Row selection highlight */
+.row-selected { background-color: #f0fdf4 !important; }
+
+/* Corporate Branding gradient */
+.brand-banner-bg {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #2563eb 100%) !important;
+}
+
+/* Dark mode overrides */
+body.dark-theme { background-color: #0f172a; color: #94a3b8; }
+body.dark-theme .bg-white { background-color: #1e293b !important; border-color: #334155 !important; }
+body.dark-theme .text-slate-700 { color: #94a3b8 !important; }
+body.dark-theme .text-slate-950,
+body.dark-theme .text-slate-900 { color: #f1f5f9 !important; }
+body.dark-theme .bg-slate-50 { background-color: #1e293b !important; border-color: #334155 !important; }
+body.dark-theme input,
+body.dark-theme select { background-color: #0f172a !important; border-color: #334155 !important; color: #f1f5f9 !important; }
+body.dark-theme #spreadsheetTable thead tr { background-color: #334155 !important; }
+body.dark-theme .row-selected { background-color: #064e3b !important; }
+
+/* Print styles */
+@media print {
+  body { background: white !important; color: #1e293b !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  #printableReportArea { display: block !important; width: 100% !important; max-width: 100% !important; border: none !important; box-shadow: none !important; margin: 0 !important; padding: 10mm !important; background: white !important; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  @page { size: portrait; margin: 1cm; }
+}
