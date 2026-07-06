@@ -25,31 +25,115 @@ const INITIAL_DELIVERABLES = [
   { id:"5_4", phase:"FIVE", code:"4", description:"HVAC Air Conditioning", optimalRate:9, bufferedRate:9, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
   { id:"6_parent", phase:"SIX", code:"SIX", description:"BOQ DEVELOPMENT (MEP Design Deliverable Group)", optimalRate:24, bufferedRate:24, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["6_1"] },
   { id:"6_1", phase:"SIX", code:"1", description:"MEP BOQ Estimates", optimalRate:24, bufferedRate:24, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"fitout_1", phase:"FITOUT", code:"1.0", description:"ID Scope (Civil, Finishes & FF&E)", optimalRate:5500, bufferedRate:7000, isParent:true, checked:false, section:"Fit-Out Scope", taxRate:15, subItems:["fitout_1_1","fitout_1_2","fitout_1_3","fitout_1_4","fitout_1_5","fitout_1_6","fitout_1_7"] },
-  { id:"fitout_1_1", phase:"FITOUT", code:"1", description:"Facade Protection Partitions", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_1_2", phase:"FITOUT", code:"2", description:"Dismantling Scope", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_1_3", phase:"FITOUT", code:"3", description:"Partitioning - Gypsum / Cement Board", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_1_4", phase:"FITOUT", code:"4", description:"Glass Partitions (tempered 12mm+, privacy film)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_1_5", phase:"FITOUT", code:"5", description:"Levelling of Floor", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_1_6", phase:"FITOUT", code:"6", description:"Concealed Ceiling & Gypsum Tiles", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_1_7", phase:"FITOUT", code:"7", description:"Flooring - Dark Grey Carpet / Tiles/Vinyl Tiles", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_2", phase:"FITOUT", code:"2.0", description:"HVAC Works Package", optimalRate:2000, bufferedRate:2000, isParent:true, checked:false, section:"Fit-Out Scope", taxRate:15, subItems:["fitout_2_1","fitout_2_2","fitout_2_3"] },
-  { id:"fitout_2_1", phase:"FITOUT", code:"1", description:"Air Supply Ductings & Return Systems", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_2_2", phase:"FITOUT", code:"2", description:"Dampers, Volume Controllers & Diffusers", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_2_3", phase:"FITOUT", code:"3", description:"Dedicated Precision AC for Server Room", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_3", phase:"FITOUT", code:"3.0", description:"Electrical Works Package", optimalRate:2500, bufferedRate:2500, isParent:true, checked:false, section:"Fit-Out Scope", taxRate:15, subItems:["fitout_3_1","fitout_3_2","fitout_3_3"] },
-  { id:"fitout_3_1", phase:"FITOUT", code:"1", description:"Raceways & Raw Power Wiring (Pakistan Cables)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_3_2", phase:"FITOUT", code:"2", description:"Data Wiring - Cat 6 (3M)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_3_3", phase:"FITOUT", code:"3", description:"Voice Wiring (3M) & Basic Lighting", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_4", phase:"FITOUT", code:"4.0", description:"Furniture Package", optimalRate:2500, bufferedRate:3500, isParent:true, checked:false, section:"Fit-Out Scope", taxRate:15, subItems:["fitout_4_1","fitout_4_2"] },
-  { id:"fitout_4_1", phase:"FITOUT", code:"1", description:"Workstation Type A - Height-adj. desk", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_4_2", phase:"FITOUT", code:"2", description:"Lounge Areas & Staff Lockers", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_5", phase:"FITOUT", code:"5.0", description:"AV / IT Equipment Package (OFM for Optimal)", optimalRate:0, bufferedRate:1000, isParent:true, checked:false, section:"Fit-Out Scope", taxRate:15, subItems:["fitout_5_1","fitout_5_2"] },
-  { id:"fitout_5_1", phase:"FITOUT", code:"1", description:"LG Displays, Logi Rally Bars, Mic Arrays & Schedulers", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_5_2", phase:"FITOUT", code:"2", description:"USB-C Adapters, Active Extenders & Cabling standard", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_6", phase:"FITOUT", code:"6.0", description:"Server Room / Hub Room Fit-Out (OFM for Optimal)", optimalRate:0, bufferedRate:1300, isParent:true, checked:false, section:"Fit-Out Scope", taxRate:15, subItems:["fitout_6_1","fitout_6_2"] },
-  { id:"fitout_6_1", phase:"FITOUT", code:"1", description:"Server Racks, PDU, UPS Battery Arrays", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
-  { id:"fitout_6_2", phase:"FITOUT", code:"2", description:"Dedicated Precision AC / CRAC Unit", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+
+  // ── NEW: Architecture, Structure & Facade Engineering consultancy fees ──
+  { id:"7_parent", phase:"SEVEN", code:"SEVEN", description:"ARCHITECTURE (Concept & Design Development)", optimalRate:66, bufferedRate:66, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["7_1","7_2","7_3"] },
+  { id:"7_1", phase:"SEVEN", code:"1", description:"Project Initiation", optimalRate:12, bufferedRate:12, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
+  { id:"7_2", phase:"SEVEN", code:"2", description:"Concept Design", optimalRate:18, bufferedRate:18, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
+  { id:"7_3", phase:"SEVEN", code:"3", description:"Design Development", optimalRate:36, bufferedRate:36, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
+  { id:"8_parent", phase:"EIGHT", code:"EIGHT", description:"ARCHITECTURE (Tender Package)", optimalRate:54, bufferedRate:54, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["8_1","8_2"] },
+  { id:"8_1", phase:"EIGHT", code:"1", description:"Drawing Development", optimalRate:36, bufferedRate:36, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
+  { id:"8_2", phase:"EIGHT", code:"2", description:"BOQ Development", optimalRate:18, bufferedRate:18, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
+  { id:"9_parent", phase:"NINE", code:"NINE", description:"STRUCTURE (Project Initiation)", optimalRate:5, bufferedRate:5, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["9_1"] },
+  { id:"9_1", phase:"NINE", code:"1", description:"Project Initiation", optimalRate:5, bufferedRate:5, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
+  { id:"10_parent", phase:"TEN", code:"TEN", description:"STRUCTURE (Tender Package)", optimalRate:45, bufferedRate:45, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["10_1","10_2"] },
+  { id:"10_1", phase:"TEN", code:"1", description:"Drawing Development", optimalRate:30, bufferedRate:30, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
+  { id:"10_2", phase:"TEN", code:"2", description:"BOQ Development", optimalRate:15, bufferedRate:15, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
+  { id:"11_parent", phase:"ELEVEN", code:"ELEVEN", description:"FACADE ENGINEERING (Concept & Design Development)", optimalRate:70, bufferedRate:70, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["11_1","11_2","11_3"] },
+  { id:"11_1", phase:"ELEVEN", code:"1", description:"Project Initiation", optimalRate:8, bufferedRate:8, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
+  { id:"11_2", phase:"ELEVEN", code:"2", description:"Concept Design", optimalRate:18, bufferedRate:18, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
+  { id:"11_3", phase:"ELEVEN", code:"3", description:"Design Development", optimalRate:44, bufferedRate:44, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
+  { id:"12_parent", phase:"TWELVE", code:"TWELVE", description:"FACADE ENGINEERING (Tender Package)", optimalRate:63, bufferedRate:63, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["12_1","12_2"] },
+  { id:"12_1", phase:"TWELVE", code:"1", description:"Drawing Development", optimalRate:48, bufferedRate:48, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
+  { id:"12_2", phase:"TWELVE", code:"2", description:"BOQ Development", optimalRate:15, bufferedRate:15, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
+
+  // ── Fit-Out Scope (full package detail) ──
+  { id:"fitout_1", phase:"FITOUT", code:"1.0", description:"ID Scope (Civil, Finishes & FF&E)", optimalRate:5500, bufferedRate:7000, isParent:true, checked:false, section:"Fit-Out Scope", taxRate:15, subItems:["fitout_1_1","fitout_1_2","fitout_1_3","fitout_1_4","fitout_1_5","fitout_1_6","fitout_1_7","fitout_1_8","fitout_1_9","fitout_1_10","fitout_1_11","fitout_1_12","fitout_1_13","fitout_1_14","fitout_1_15","fitout_1_16","fitout_1_17","fitout_1_18","fitout_1_19","fitout_1_20","fitout_1_21"] },
+  { id:"fitout_1_1", phase:"FITOUT", code:"i", description:"Façade Protection Partitions", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_2", phase:"FITOUT", code:"ii", description:"Dismantling Scope", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_3", phase:"FITOUT", code:"iii", description:"Partitioning - Gypsum / Cement Board", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_4", phase:"FITOUT", code:"iv", description:"Glass Partitions (tempered 12mm+, privacy film)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_5", phase:"FITOUT", code:"v", description:"Levelling of Floor", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_6", phase:"FITOUT", code:"vi", description:"Concealed Ceiling & Gypsum / Cement Board Tiles", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_7", phase:"FITOUT", code:"vii", description:"Flooring - Dark Grey Carpet (office/MTG) + Tiles/Vinyl (reception/pantry/showroom)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_8", phase:"FITOUT", code:"viii", description:"Fire Exit Doors", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_9", phase:"FITOUT", code:"ix", description:"Doors (solid, door closers; access locks for restricted rooms)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_10", phase:"FITOUT", code:"x", description:"Paint - Water Matt / Texture", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_11", phase:"FITOUT", code:"xi", description:"Lindapters", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_12", phase:"FITOUT", code:"xii", description:"Open Ceiling / Drop-down Ceiling", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_13", phase:"FITOUT", code:"xiii", description:"Blinds & Pelmet Boards", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_14", phase:"FITOUT", code:"xiv", description:"Sealing of Edging (Façade)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_15", phase:"FITOUT", code:"xv", description:"Plumbing & Sanitary Fixtures (Porta or Equivalent)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_16", phase:"FITOUT", code:"xvi", description:"Finished Ceiling Material / Metal Deck Paint", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_17", phase:"FITOUT", code:"xvii", description:"Painted Walls & Columns / Feature Walls & Wall-Column Cladding", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_18", phase:"FITOUT", code:"xviii", description:"Nursing Room - Mini-fridge, Sink, Lock, Baby-change Area", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_19", phase:"FITOUT", code:"xix", description:"Prayer Room / Multifaith Quiet Room Setup", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_20", phase:"FITOUT", code:"xx", description:"Signage / Basic Branding & Signage", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_1_21", phase:"FITOUT", code:"xxi", description:"Customised Lighting - Reception / Pantry / Showroom", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+
+  { id:"fitout_2", phase:"FITOUT", code:"2.0", description:"HVAC Works Package", optimalRate:2000, bufferedRate:2000, isParent:true, checked:false, section:"Fit-Out Scope", taxRate:15, subItems:["fitout_2_1","fitout_2_2","fitout_2_3","fitout_2_4","fitout_2_5","fitout_2_6","fitout_2_7","fitout_2_8","fitout_2_9"] },
+  { id:"fitout_2_1", phase:"FITOUT", code:"i", description:"Air Supply Ductings", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_2_2", phase:"FITOUT", code:"ii", description:"Open Return", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_2_3", phase:"FITOUT", code:"iii", description:"Dampers", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_2_4", phase:"FITOUT", code:"iv", description:"Supply Air Diffusers", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_2_5", phase:"FITOUT", code:"v", description:"Return Air Diffusers", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_2_6", phase:"FITOUT", code:"vi", description:"VAV & VCD (Volume Control Damper)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_2_7", phase:"FITOUT", code:"vii", description:"Piping for Fire Fighting System", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_2_8", phase:"FITOUT", code:"viii", description:"Sprinklers", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_2_9", phase:"FITOUT", code:"ix", description:"Dedicated Precision AC / CRAC Unit for Server Room", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+
+  { id:"fitout_3", phase:"FITOUT", code:"3.0", description:"Electrical Works Package", optimalRate:2500, bufferedRate:2500, isParent:true, checked:false, section:"Fit-Out Scope", taxRate:15, subItems:["fitout_3_1","fitout_3_2","fitout_3_3","fitout_3_4","fitout_3_5","fitout_3_6","fitout_3_7","fitout_3_8","fitout_3_9","fitout_3_10","fitout_3_11","fitout_3_12","fitout_3_13"] },
+  { id:"fitout_3_1", phase:"FITOUT", code:"i", description:"Raceways (Pak Arab / Equivalent)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_3_2", phase:"FITOUT", code:"ii", description:"Raw Power Wiring (Pakistan Cables)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_3_3", phase:"FITOUT", code:"iii", description:"Data Wiring - Cat 6 (3M) per S&C Cabling Standard", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_3_4", phase:"FITOUT", code:"iv", description:"Voice Wiring (3M)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_3_5", phase:"FITOUT", code:"v", description:"Basic Lighting (300-500 lux; 4000-5000K office areas)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_3_6", phase:"FITOUT", code:"vi", description:"FA Scope with Integration of Lighting Control System", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_3_7", phase:"FITOUT", code:"vii", description:"PA System", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_3_8", phase:"FITOUT", code:"viii", description:"Face Plates (Schneider)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_3_9", phase:"FITOUT", code:"ix", description:"Multi Sockets (Schneider)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_3_10", phase:"FITOUT", code:"x", description:"CCTV - AXIS P3265-LV or Hik Vision Equivalent", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_3_11", phase:"FITOUT", code:"xi", description:"Data / Voice Termination", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_3_12", phase:"FITOUT", code:"xii", description:"Supply & Termination of Distribution Panels", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_3_13", phase:"FITOUT", code:"xiii", description:"Cable Trays", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+
+  { id:"fitout_4", phase:"FITOUT", code:"4.0", description:"Furniture Package", optimalRate:2500, bufferedRate:3500, isParent:true, checked:false, section:"Fit-Out Scope", taxRate:15, subItems:["fitout_4_1","fitout_4_2","fitout_4_3","fitout_4_4","fitout_4_5","fitout_4_6","fitout_4_7","fitout_4_8","fitout_4_9"] },
+  { id:"fitout_4_1", phase:"FITOUT", code:"i", description:"Workstation Type A - Height-adj. Desk 1600x750mm, 2 Monitor Arms", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_4_2", phase:"FITOUT", code:"ii", description:"Individual Office Type A - L-desk 1800x800+1200mm, 2 Cabinets (Manager)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_4_3", phase:"FITOUT", code:"iii", description:"4P Meeting Room - Table 1600x1200mm + Chairs", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_4_4", phase:"FITOUT", code:"iv", description:"12P Meeting Room - Table 4800x1400mm + Chairs", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_4_5", phase:"FITOUT", code:"v", description:"Reception Desk + Waiting Sofas / Chairs / Coffee Table", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_4_6", phase:"FITOUT", code:"vi", description:"Lounge Area - Sofas, Chairs, Coffee Tables", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_4_7", phase:"FITOUT", code:"vii", description:"Pantry - Base/Wall Cabinets, High Counter, Dining + Bar Chairs, Benches", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_4_8", phase:"FITOUT", code:"viii", description:"Showroom - INT Racks (Compulsory)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_4_9", phase:"FITOUT", code:"ix", description:"Lockers for Staff (Unassigned / Type B Seats)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+
+  { id:"fitout_5", phase:"FITOUT", code:"5.0", description:"AV / IT Equipment Package (OFM for Optimal)", optimalRate:0, bufferedRate:1000, isParent:true, checked:false, section:"Fit-Out Scope", taxRate:15, subItems:["fitout_5_1","fitout_5_2","fitout_5_3","fitout_5_4","fitout_5_5","fitout_5_6"] },
+  { id:"fitout_5_1", phase:"FITOUT", code:"i", description:"Country Manager Office - LG 65\" Display + Logi Rally Bar Mini + Mic + Tap + Trolley", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_5_2", phase:"FITOUT", code:"ii", description:"4P Meeting Room - LG 65\" Display + Logi Rally Bar + Tap Scheduler + Wall Mount", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_5_3", phase:"FITOUT", code:"iii", description:"12P Meeting Room - LG 75\" Display + Logi Rally Bar + Dual Mics + Tap Scheduler", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_5_4", phase:"FITOUT", code:"iv", description:"Reception / Lounge - Info Display Screen (55\" LED TV)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_5_5", phase:"FITOUT", code:"v", description:"Pantry - Mounted TV for Company News (Optional)", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_5_6", phase:"FITOUT", code:"vi", description:"All Rooms: USB-C Power Adapters, Extenders, CAT Couplers", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+
+  { id:"fitout_6", phase:"FITOUT", code:"6.0", description:"Server Room / Hub Room Fit-Out (OFM for Optimal)", optimalRate:0, bufferedRate:1300, isParent:true, checked:false, section:"Fit-Out Scope", taxRate:15, subItems:["fitout_6_1","fitout_6_2","fitout_6_3","fitout_6_4","fitout_6_5","fitout_6_6","fitout_6_7","fitout_6_8","fitout_6_9","fitout_6_10"] },
+  { id:"fitout_6_1", phase:"FITOUT", code:"i", description:"Rittal or Vertiv Server Racks - 2-Rack Bundle with Patch Panel & Patch Cords", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_6_2", phase:"FITOUT", code:"ii", description:"UPS + UPS Batteries - Single Phase", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_6_3", phase:"FITOUT", code:"iii", description:"PDU", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_6_4", phase:"FITOUT", code:"iv", description:"Dedicated Precision AC / CRAC Unit", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_6_5", phase:"FITOUT", code:"v", description:"Temperature & Humidity Sensors / Environmental Controls", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_6_6", phase:"FITOUT", code:"vi", description:"Fire Suppression - Non-water", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_6_7", phase:"FITOUT", code:"vii", description:"Structured Cabling - Cat 6 + Patch Panels", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_6_8", phase:"FITOUT", code:"viii", description:"Cable Management + Trays within Server Room", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_6_9", phase:"FITOUT", code:"ix", description:"Earthing & Bonding", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+  { id:"fitout_6_10", phase:"FITOUT", code:"x", description:"Access Lock - Restricted to Authorised Personnel Only", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
+
+  // ── NEW: Landscaping (permanent, always visible like Design Fees) ──
+  { id:"land_1", phase:"ONE", code:"ONE", description:"PROJECT INITIATION (Site Inspection, Survey & Analysis, Timeline & High-Level Budget)", optimalRate:0, bufferedRate:0, isParent:true, checked:true, section:"Landscaping", taxRate:15, subItems:[] },
+  { id:"land_2", phase:"TWO", code:"TWO", description:"CONCEPT DESIGN (Landscape Master Plan, Concept Moodboards & References, Softscape/Hardscape Strategy)", optimalRate:0, bufferedRate:0, isParent:true, checked:true, section:"Landscaping", taxRate:15, subItems:[] },
+  { id:"land_3", phase:"THREE", code:"THREE", description:"DESIGN DEVELOPMENT (Planting Plans, Hardscape Details, Irrigation & Drainage Concept, 3D Visualisation)", optimalRate:0, bufferedRate:0, isParent:true, checked:true, section:"Landscaping", taxRate:15, subItems:[] },
+  { id:"land_4", phase:"FOUR", code:"FOUR", description:"DRAWING DEVELOPMENT (Landscape - Tender Package: Working Drawings, Planting Schedules, Irrigation Layouts)", optimalRate:0, bufferedRate:0, isParent:true, checked:true, section:"Landscaping", taxRate:15, subItems:[] },
+  { id:"land_5", phase:"FIVE", code:"FIVE", description:"BOQ DEVELOPMENT (Landscape - Tender Package: Landscape, Hardscape & Softscape)", optimalRate:0, bufferedRate:0, isParent:true, checked:true, section:"Landscaping", taxRate:15, subItems:[] },
 ]
 
 const INITIAL_MILESTONES = [
@@ -61,6 +145,35 @@ const INITIAL_TIMELINE = [
   { title:"Design Requirements", days:9, badge:"Phase 1" },
   { title:"Interior Design Process", days:60, badge:"Phase 2" },
   { title:"Construction & Fit-Out handover", days:120, badge:"Phase 3" },
+]
+
+// ── NEW: Top Supervision (No. of Visits × Rate per Visit) ──
+const INITIAL_TOP_SUPERVISION = [
+  { id:"sup_1", position:"Principal Architect — Site Visits", visits:0, rate:0, checked:true },
+  { id:"sup_2", position:"Senior Structural Engineer — Site Visits", visits:0, rate:0, checked:true },
+  { id:"sup_3", position:"Senior MEP Engineer — Site Visits", visits:0, rate:0, checked:true },
+  { id:"sup_4", position:"Senior Interior Designer — Site Visits", visits:0, rate:0, checked:true },
+  { id:"sup_5", position:"Senior Landscape Architect — Site Visits", visits:0, rate:0, checked:true },
+  { id:"sup_6", position:"Senior Façade Engineer — Site Visits", visits:0, rate:0, checked:true },
+]
+
+// ── NEW: Resident Engineering & Supervision Team (Personnel × Monthly Cost × Duration) ──
+const INITIAL_RESIDENT_TEAM = [
+  { id:"res_1", position:"Resident Project Manager", personnel:1, monthlyCost:0, checked:true },
+  { id:"res_2", position:"Resident Architect", personnel:1, monthlyCost:0, checked:true },
+  { id:"res_3", position:"Resident Civil / Structural Engineer", personnel:1, monthlyCost:0, checked:true },
+  { id:"res_4", position:"Resident Electrical Engineer", personnel:1, monthlyCost:0, checked:true },
+  { id:"res_5", position:"Resident Mechanical / HVAC Engineer", personnel:1, monthlyCost:0, checked:true },
+  { id:"res_6", position:"Resident Plumbing & Fire-Fighting Engineer", personnel:1, monthlyCost:0, checked:true },
+  { id:"res_7", position:"Resident Quantity Surveyor / Billing Engineer", personnel:1, monthlyCost:0, checked:true },
+  { id:"res_8", position:"Resident Interior Coordinator", personnel:1, monthlyCost:0, checked:true },
+  { id:"res_9", position:"Resident Landscape Coordinator", personnel:1, monthlyCost:0, checked:true },
+  { id:"res_10", position:"Resident Façade Engineer", personnel:1, monthlyCost:0, checked:true },
+  { id:"res_11", position:"Site Inspector — Civil", personnel:2, monthlyCost:0, checked:true },
+  { id:"res_12", position:"Site Inspector — MEP", personnel:2, monthlyCost:0, checked:true },
+  { id:"res_13", position:"Health, Safety & Environment (HSE) Officer", personnel:1, monthlyCost:0, checked:true },
+  { id:"res_14", position:"Document Controller", personnel:1, monthlyCost:0, checked:true },
+  { id:"res_15", position:"Office Support / Admin", personnel:1, monthlyCost:0, checked:true },
 ]
 
 const INITIAL_PROPOSALS = [
@@ -76,28 +189,34 @@ function formatPKR(val) {
   return new Intl.NumberFormat('en-PK', { maximumFractionDigits: 0 }).format(val)
 }
 
-function calcTotals(deliverables, sqft, strategy) {
+// Landscaping items use their own area (landscapeSqft); everything else uses the main building sqft
+function areaForItem(item, sqft, landscapeSqft) {
+  return item.section === 'Landscaping' ? (landscapeSqft || 0) : sqft
+}
+
+function calcTotals(deliverables, sqft, strategy, landscapeSqft = 0) {
   let subtotal = 0, totalTax = 0
   deliverables.forEach(item => {
     const rate = strategy === 'optimal' ? item.optimalRate : item.bufferedRate
     const tax = item.taxRate ?? 15
     if (!item.checked) return
+    const area = areaForItem(item, sqft, landscapeSqft)
     if (item.isParent) {
       if (item.subItems?.length) {
         const children = deliverables.filter(c => item.subItems.includes(c.id))
         const hasNonZeroChildren = children.some(c => (strategy === 'optimal' ? c.optimalRate : c.bufferedRate) > 0)
         if (!hasNonZeroChildren) {
-          const t = rate * sqft
+          const t = rate * area
           subtotal += t; totalTax += t * (tax / 100)
         }
       } else {
-        const t = rate * sqft
+        const t = rate * area
         subtotal += t; totalTax += t * (tax / 100)
       }
     } else {
       const parent = deliverables.find(p => p.isParent && p.subItems?.includes(item.id))
       if (!parent || parent.checked) {
-        const t = rate * sqft
+        const t = rate * area
         subtotal += t; totalTax += t * (tax / 100)
       }
     }
@@ -105,37 +224,97 @@ function calcTotals(deliverables, sqft, strategy) {
   return { subtotal, tax: totalTax, grandTotal: subtotal + totalTax }
 }
 
-function getRowTotal(item, deliverables, sqft, strategy) {
+function getRowTotal(item, deliverables, sqft, strategy, landscapeSqft = 0) {
   if (!item.checked) return 0
   const rate = strategy === 'optimal' ? item.optimalRate : item.bufferedRate
+  const area = areaForItem(item, sqft, landscapeSqft)
   if (item.isParent) {
     if (item.subItems?.length) {
       const children = deliverables.filter(c => item.subItems.includes(c.id))
       const hasNonZeroChildren = children.some(c => (strategy === 'optimal' ? c.optimalRate : c.bufferedRate) > 0)
       if (hasNonZeroChildren) {
         const activeChildren = children.filter(c => c.checked)
-        return activeChildren.reduce((s, c) => s + (strategy === 'optimal' ? c.optimalRate : c.bufferedRate), 0) * sqft
+        return activeChildren.reduce((s, c) => s + (strategy === 'optimal' ? c.optimalRate : c.bufferedRate), 0) * area
       }
-      return rate * sqft
+      return rate * area
     }
-    return rate * sqft
+    return rate * area
   }
   const parent = deliverables.find(p => p.isParent && p.subItems?.includes(item.id))
-  if (!parent || parent.checked) return rate * sqft
+  if (!parent || parent.checked) return rate * area
   return 0
 }
 
-// ─── SVG Logo ────────────────────────────────────────────────────────────────
+// ── NEW: Top Supervision / Resident Team totals (only counts checked/selected rows) ──
+function getSupervisionTotal(items) {
+  return (items || []).filter(i => i.checked !== false).reduce((s, i) => s + (Number(i.visits) || 0) * (Number(i.rate) || 0), 0)
+}
+function getResidentTeamTotal(items, months) {
+  return (items || []).filter(i => i.checked !== false).reduce((s, i) => s + (Number(i.personnel) || 0) * (Number(i.monthlyCost) || 0) * (Number(months) || 0), 0)
+}
+
+// ── NEW: Builds the report's line-item rows for both Summary and Detailed modes ──
+// Shared between the live PrintableReport preview and the compiled PDF HTML, so both stay identical.
+function buildReportRows(deliverables, sqft, landscapeSqft, strategy, mode) {
+  const rows = []
+  const topLevel = deliverables.filter(i => i.checked && (i.isParent || i.id.startsWith('custom_')))
+  topLevel.forEach(item => {
+    const area = areaForItem(item, sqft, landscapeSqft)
+    const rate = strategy === 'optimal' ? item.optimalRate : item.bufferedRate
+    const total = getRowTotal(item, deliverables, sqft, strategy, landscapeSqft)
+    rows.push({ type: 'priced', description: item.description, rate, area, total, indent: false })
+
+    if (mode === 'detailed' && item.subItems?.length) {
+      const children = deliverables.filter(c => item.subItems.includes(c.id) && c.checked)
+      const hasNonZeroChildren = children.some(c => (strategy === 'optimal' ? c.optimalRate : c.bufferedRate) > 0)
+      children.forEach(child => {
+        const cleanDesc = child.description.replace(/^↳\s*(?:\d+\.\s*)?/, '').trim()
+        if (hasNonZeroChildren) {
+          const cRate = strategy === 'optimal' ? child.optimalRate : child.bufferedRate
+          rows.push({ type: 'priced', description: cleanDesc, rate: cRate, area, total: cRate * area, indent: true })
+        } else {
+          rows.push({ type: 'note', description: cleanDesc, indent: true })
+        }
+      })
+    }
+  })
+  return rows
+}
+
+// ── NEW: Builds Top Supervision & Resident Team rows for the report ──
+function buildExtraRows(topSupervisionItems, residentTeamItems, months, mode) {
+  const rows = []
+  const supTotal = getSupervisionTotal(topSupervisionItems)
+  rows.push({ type: 'section', description: 'Top Supervision (Site Visits)' })
+  if (mode === 'detailed') {
+    (topSupervisionItems || []).filter(it => it.checked !== false).forEach(it => {
+      rows.push({ type: 'priced_simple', description: it.position, qty: it.visits, rate: it.rate, total: (Number(it.visits)||0) * (Number(it.rate)||0) })
+    })
+  }
+  rows.push({ type: 'subtotal', description: 'Top Supervision — Subtotal', total: supTotal })
+
+  const resTotal = getResidentTeamTotal(residentTeamItems, months)
+  rows.push({ type: 'section', description: 'Resident Engineering & Supervision Team' })
+  if (mode === 'detailed') {
+    (residentTeamItems || []).filter(it => it.checked !== false).forEach(it => {
+      rows.push({ type: 'priced_simple', description: `${it.position} (x${it.personnel})`, qty: it.personnel, rate: (Number(it.monthlyCost)||0) * (Number(months)||0), total: (Number(it.personnel)||0) * (Number(it.monthlyCost)||0) * (Number(months)||0) })
+    })
+  }
+  rows.push({ type: 'subtotal', description: `Resident Team — Subtotal (${months || 0} ${Number(months) === 1 ? 'Month' : 'Months'})`, total: resTotal })
+
+  return rows
+}
+
+// ─── Logo image ───────────────────────────────────────────────────────────────
 function MoleculeLogo({ size = 32 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="50" cy="50" r="45" fill="#0f172a"/>
-      <path d="M50 15L75 30V60L50 75L25 60V30L50 15Z" stroke="#2563eb" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M50 15V75" stroke="#2563eb" strokeWidth="2"/>
-      <path d="M25 30L75 60" stroke="#2563eb" strokeWidth="2"/>
-      <path d="M25 60L75 30" stroke="#2563eb" strokeWidth="2"/>
-      <path d="M50 33L65 42V58L50 67L35 58V42L50 33Z" fill="#3b82f6" opacity="0.6" stroke="#ffffff" strokeWidth="2"/>
-    </svg>
+    <img
+      src="/logo.png"
+      alt="Molecule Logo"
+      width={size}
+      height={size}
+      style={{ width: size, height: size, objectFit: 'contain', display: 'block' }}
+    />
   )
 }
 
@@ -286,7 +465,7 @@ function ScopePopup({ deliverables, strategy, onClose, onApply }) {
           </div>
           <div className="relative flex py-1.5 items-center">
             <div className="flex-grow border-t border-slate-200"></div>
-            <span className="flex-shrink mx-3 text-[10px] text-slate-400 font-extrabold uppercase tracking-wider">OR CREATE CUSTOM ITEM</span>
+            <span className="flex-shrink mx-3 text-[10px] text-slate-400 font-extrabold uppercase tracking-wider">ADD Packages</span>
             <div className="flex-grow border-t border-slate-200"></div>
           </div>
           <div className="bg-slate-50 p-3 rounded-lg border border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-3 text-[11px]">
@@ -359,16 +538,21 @@ function NestedItemPopup({ parentId, parentDesc, onClose, onSave }) {
 }
 
 // ─── Printable Report ─────────────────────────────────────────────────────────
-function PrintableReport({ clientName, projectName, sqft, strategy, deliverables, milestones, invitationText, setInvitationText }) {
-  const { subtotal, tax, grandTotal } = calcTotals(deliverables, sqft, strategy)
-  const reportItems = deliverables.filter(i => i.checked && (i.isParent || i.id.startsWith('custom_')))
+function PrintableReport({ clientName, projectName, sqft, landscapeSqft, strategy, deliverables, milestones, invitationText, setInvitationText, reportMode, topSupervisionItems, residentTeamItems, projectDurationMonths, negativeListTitle, negativeListItems }) {
+  const { subtotal: taxableSubtotal, tax } = calcTotals(deliverables, sqft, strategy, landscapeSqft)
+  const supervisionTotal = getSupervisionTotal(topSupervisionItems)
+  const residentTeamTotal = getResidentTeamTotal(residentTeamItems, projectDurationMonths)
+  const subtotal = taxableSubtotal + supervisionTotal + residentTeamTotal
+  const grandTotal = subtotal + tax
+  const reportRows = buildReportRows(deliverables, sqft, landscapeSqft, strategy, reportMode)
+  const extraRows = buildExtraRows(topSupervisionItems, residentTeamItems, projectDurationMonths, reportMode)
 
   return (
     <div className="border border-slate-300 bg-white rounded-lg shadow-lg max-w-2xl mx-auto text-slate-800 relative overflow-hidden" id="printableReportArea">
       <div className="brand-banner-bg h-3 w-full bg-slate-950"></div>
       <div className="p-5">
         {/* Letterhead */}
-        <div className="flex items-start justify-between border-b-2 border-slate-900 pb-3">
+        <div className="flex items-start justify-between border-b-2 border-slate-900 pb-3 avoid-break">
           <div className="flex items-center space-x-2">
             <div className="w-10 h-10 flex items-center justify-center bg-slate-950 text-white rounded shadow-md">
               <MoleculeLogo size={32} />
@@ -387,7 +571,7 @@ function PrintableReport({ clientName, projectName, sqft, strategy, deliverables
         </div>
 
         {/* Project Info */}
-        <div className="my-3 bg-slate-50 rounded border border-slate-200 p-2.5 grid grid-cols-3 gap-3 text-[10px]">
+        <div className="my-3 bg-slate-50 rounded border border-slate-200 p-2.5 grid grid-cols-3 gap-3 text-[10px] avoid-break">
           <div>
             <span className="block text-[8px] text-slate-400 font-bold uppercase">PROPOSAL FOR</span>
             <span className="font-extrabold text-slate-900 block mt-0.5">{clientName || '--'}</span>
@@ -429,15 +613,34 @@ function PrintableReport({ clientName, projectName, sqft, strategy, deliverables
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
-              {reportItems.map(item => {
-                const rate = strategy === 'optimal' ? item.optimalRate : item.bufferedRate
-                const total = rate * sqft
+              {reportRows.map((row, idx) => row.type === 'note' ? (
+                <tr key={`n${idx}`}>
+                  <td colSpan={4} className="py-1 px-3 pl-7 text-[9px] text-slate-400">• {row.description}</td>
+                </tr>
+              ) : (
+                <tr key={`r${idx}`} className="border-b border-slate-100 hover:bg-slate-50/50 text-slate-800">
+                  <td className={`py-1.5 px-3 ${row.indent ? 'pl-7 font-medium text-slate-600' : 'font-semibold text-slate-700'}`}>{row.description}</td>
+                  <td className="py-1.5 px-3 text-right text-slate-500">{row.rate}</td>
+                  <td className="py-1.5 px-3 text-right text-slate-500">{Number(row.area || 0).toLocaleString()}</td>
+                  <td className="py-1.5 px-3 text-right font-bold text-slate-800">{formatPKR(row.total)}</td>
+                </tr>
+              ))}
+              {extraRows.map((row, idx) => {
+                if (row.type === 'section') return (
+                  <tr key={`es${idx}`}><td colSpan={4} className="pt-3 pb-1 px-3 text-[9px] font-black uppercase text-blue-800 tracking-wider">{row.description}</td></tr>
+                )
+                if (row.type === 'priced_simple') return (
+                  <tr key={`ep${idx}`} className="text-slate-600">
+                    <td className="py-1 px-3 pl-6 text-[10px]">{row.description}</td>
+                    <td className="py-1 px-3 text-right text-[10px]">{row.qty}</td>
+                    <td className="py-1 px-3 text-right text-[10px]">{formatPKR(row.rate)}</td>
+                    <td className="py-1 px-3 text-right text-[10px] font-semibold">{formatPKR(row.total)}</td>
+                  </tr>
+                )
                 return (
-                  <tr key={item.id} className="border-b border-slate-100 hover:bg-slate-50/50 text-slate-800">
-                    <td className="py-1.5 px-3 text-slate-700 font-semibold">{item.description}</td>
-                    <td className="py-1.5 px-3 text-right text-slate-500">{rate}</td>
-                    <td className="py-1.5 px-3 text-right text-slate-500">{sqft ? Number(sqft).toLocaleString() : '0'}</td>
-                    <td className="py-1.5 px-3 text-right font-bold text-slate-800">{formatPKR(total)}</td>
+                  <tr key={`et${idx}`} className="border-t border-slate-200">
+                    <td colSpan={3} className="py-1.5 px-3 text-right text-[10px] font-extrabold text-slate-700">{row.description}</td>
+                    <td className="py-1.5 px-3 text-right text-[10px] font-extrabold text-blue-700">{formatPKR(row.total)}</td>
                   </tr>
                 )
               })}
@@ -446,7 +649,7 @@ function PrintableReport({ clientName, projectName, sqft, strategy, deliverables
         </div>
 
         {/* Totals */}
-        <div className="my-3 p-2.5 bg-slate-50 rounded border border-slate-100 space-y-1 text-[11px]">
+        <div className="my-3 p-2.5 bg-slate-50 rounded border border-slate-100 space-y-1 text-[11px] avoid-break">
           <div className="flex justify-between text-slate-600">
             <span>Design Subtotal Fee:</span>
             <span className="font-bold text-slate-800">{formatPKR(subtotal)}</span>
@@ -462,13 +665,13 @@ function PrintableReport({ clientName, projectName, sqft, strategy, deliverables
         </div>
 
         {/* Milestones */}
-        <div className="my-3">
+        <div className="my-3 avoid-break">
           <h4 className="text-[9px] font-bold uppercase text-slate-500 tracking-wider mb-1.5">Milestone Allocation Matrix</h4>
           <div className="grid grid-cols-2 gap-2">
             {milestones.map((stone, idx) => {
               const stoneGross = grandTotal * (stone.ratio / 100)
               return (
-                <div key={idx} className="p-2 bg-slate-50 border border-slate-200 rounded">
+                <div key={idx} className="p-2 bg-slate-50 border border-slate-200 rounded avoid-break">
                   <span className="block text-[8px] uppercase tracking-wider text-slate-400 font-bold">{stone.label}</span>
                   <div className="flex justify-between items-baseline mt-1">
                     <span className="font-extrabold text-slate-700 text-[10px]">{stone.ratio}%</span>
@@ -480,8 +683,16 @@ function PrintableReport({ clientName, projectName, sqft, strategy, deliverables
           </div>
         </div>
 
+        {/* Negative List */}
+        {negativeListItems && negativeListItems.length > 0 && (
+          <div className="my-3 p-2.5 bg-amber-50 border border-amber-200 rounded text-[10px] text-amber-900 avoid-break">
+            <h4 className="text-[9px] font-extrabold uppercase tracking-wider text-amber-700 mb-1">{negativeListTitle || 'Negative List'}</h4>
+            <p className="leading-relaxed">{negativeListItems.map(i => i.text).join(' | ')}</p>
+          </div>
+        )}
+
         {/* Signature */}
-        <div className="mt-6 pt-3 border-t border-slate-100 flex justify-end text-center text-[10px]">
+        <div className="mt-6 pt-3 border-t border-slate-100 flex justify-end text-center text-[10px] avoid-break">
           <div className="w-1/2 max-w-[240px]">
             <div className="h-8 border-b border-slate-200 flex items-center justify-center">
               <span className="text-slate-300 text-[9px]">Client Signature Area</span>
@@ -502,7 +713,7 @@ function PrintableReport({ clientName, projectName, sqft, strategy, deliverables
 
 
 // ─── Step 2: Spreadsheet ──────────────────────────────────────────────────────
-function SpreadsheetView({ deliverables, setDeliverables, sqft, strategy }) {
+function SpreadsheetView({ deliverables, setDeliverables, sqft, landscapeSqft, strategy }) {
   const [nestedPopup, setNestedPopup] = useState(null)
 
   const filtered = deliverables.filter(item => {
@@ -633,7 +844,8 @@ function SpreadsheetView({ deliverables, setDeliverables, sqft, strategy }) {
               else groupSeq++
               const rate = strategy === 'optimal' ? item.optimalRate : item.bufferedRate
               const tax = item.taxRate ?? 15
-              const rowTotal = getRowTotal(item, deliverables, sqft, strategy)
+              const area = areaForItem(item, sqft, landscapeSqft)
+              const rowTotal = getRowTotal(item, deliverables, sqft, strategy, landscapeSqft)
               const gross = rowTotal * (1 + tax / 100)
               const code = item.isParent ? item.code : `${groupSeq}`
               const cleanDesc = item.isParent ? item.description : item.description.replace(/^↳\s*(?:\d+\.\s*)?/, '').trim()
@@ -661,7 +873,7 @@ function SpreadsheetView({ deliverables, setDeliverables, sqft, strategy }) {
                     <input type="number" defaultValue={rate} onBlur={e => editRate(item.id, e.target.value)}
                       className="w-16 text-right pr-1 py-0.5 bg-white border border-slate-200 rounded text-[11px] font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500" />
                   </td>
-                  <td className="py-2 px-3 text-right text-slate-600 font-medium select-none">{item.checked ? Number(sqft).toLocaleString() : '0'}</td>
+                  <td className="py-2 px-3 text-right text-slate-600 font-medium select-none">{item.checked ? Number(area).toLocaleString() : '0'}</td>
                   <td className="py-2 px-3 text-right font-bold text-slate-800">{formatPKR(rowTotal)}</td>
                   <td className="py-2 px-3 text-center">
                     <div className="inline-flex items-center justify-center">
@@ -847,18 +1059,332 @@ function TimelinePanel({ timelinePhases, setTimelinePhases }) {
   )
 }
 
+// ─── NEW: Landscaping Panel (rate × landscape area, selectable/unselectable like the main table) ──
+function LandscapingPanel({ deliverables, setDeliverables, landscapeSqft, strategy }) {
+  const items = deliverables.filter(i => i.section === 'Landscaping')
+  const ids = items.map(i => i.id)
+  const allChecked = items.length > 0 && items.every(i => i.checked)
+
+  function toggleItem(id, isChecked) {
+    setDeliverables(prev => prev.map(item => item.id === id ? { ...item, checked: isChecked } : item))
+  }
+  function toggleAll(isChecked) {
+    setDeliverables(prev => prev.map(item => ids.includes(item.id) ? { ...item, checked: isChecked } : item))
+  }
+  function editDesc(id, val) {
+    setDeliverables(prev => prev.map(item => item.id === id ? { ...item, description: val } : item))
+  }
+  function editRate(id, val) {
+    const rateNum = parseFloat(val) || 0
+    setDeliverables(prev => prev.map(item => {
+      if (item.id !== id) return item
+      return strategy === 'optimal' ? { ...item, optimalRate: rateNum } : { ...item, bufferedRate: rateNum }
+    }))
+  }
+  function removeRow(id) {
+    setDeliverables(prev => prev.filter(item => item.id !== id))
+  }
+  function addRow() {
+    const newId = `land_${Date.now()}`
+    setDeliverables(prev => [...prev, {
+      id: newId, phase: 'CUST', code: '-', description: 'New Landscaping Item',
+      optimalRate: 0, bufferedRate: 0, isParent: true, checked: true,
+      section: 'Landscaping', taxRate: 15, subItems: []
+    }])
+  }
+
+  const subtotal = items.reduce((s, it) => s + getRowTotal(it, deliverables, 0, strategy, landscapeSqft), 0)
+
+  return (
+    <div className="border border-slate-200 rounded-xl p-3 bg-slate-50/50 space-y-2">
+      <div className="flex justify-between items-center">
+        <h3 className="font-bold text-slate-900 text-[12px] flex items-center">
+          <i className="fa-solid fa-tree mr-1.5 text-blue-600"></i> Landscaping
+        </h3>
+        <button onClick={addRow} className="text-[9px] bg-blue-600 hover:bg-blue-700 text-white font-bold px-1.5 py-0.5 rounded shadow-sm transition-colors">+ Add</button>
+      </div>
+      <div className="overflow-x-auto custom-scrollbar">
+        <table className="w-full text-left border-collapse text-[10px] min-w-[480px]">
+          <thead>
+            <tr className="bg-slate-900 text-white uppercase tracking-wider text-[9px] font-bold">
+              <th className="py-1.5 px-2 w-8 text-center">
+                <input type="checkbox" checked={allChecked} onChange={e => toggleAll(e.target.checked)}
+                  title="Select / deselect whole package"
+                  className="w-3.5 h-3.5 border-slate-300 rounded text-blue-600 focus:ring-blue-500 cursor-pointer" />
+              </th>
+              <th className="py-1.5 px-2">Phase / Description</th>
+              <th className="py-1.5 px-2 text-right w-16">Rate/Sq.Ft</th>
+              <th className="py-1.5 px-2 text-right w-16">Area Sq.Ft</th>
+              <th className="py-1.5 px-2 text-right w-24">Total (PKR)</th>
+              <th className="py-1.5 px-2 w-8 text-center">Rem</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-200 bg-white">
+            {items.map(it => {
+              const rate = strategy === 'optimal' ? it.optimalRate : it.bufferedRate
+              const total = getRowTotal(it, deliverables, 0, strategy, landscapeSqft)
+              return (
+                <tr key={it.id} className={it.checked ? 'bg-blue-50/30' : ''}>
+                  <td className="py-1.5 px-2 text-center">
+                    <input type="checkbox" checked={it.checked} onChange={e => toggleItem(it.id, e.target.checked)}
+                      className="w-3.5 h-3.5 border-slate-300 rounded text-blue-600 focus:ring-blue-500 cursor-pointer" />
+                  </td>
+                  <td className="py-1.5 px-2">
+                    <input type="text" value={it.description} onChange={e => editDesc(it.id, e.target.value)}
+                      className="w-full bg-transparent border-b border-transparent hover:border-slate-300 focus:border-blue-500 focus:outline-none text-slate-700 font-medium" />
+                  </td>
+                  <td className="py-1.5 px-2 text-right">
+                    <input type="number" defaultValue={rate} onBlur={e => editRate(it.id, e.target.value)}
+                      className="w-16 text-right px-1 py-0.5 bg-white border border-slate-200 rounded font-semibold text-slate-800" />
+                  </td>
+                  <td className="py-1.5 px-2 text-right text-slate-600 font-medium select-none">{it.checked ? Number(landscapeSqft || 0).toLocaleString() : '0'}</td>
+                  <td className="py-1.5 px-2 text-right font-bold text-slate-800">{formatPKR(total)}</td>
+                  <td className="py-1.5 px-2 text-center">
+                    <button onClick={() => removeRow(it.id)} className="text-slate-300 hover:text-red-500"><i className="fa-solid fa-trash-can text-[10px]"></i></button>
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
+      <div className="text-[9px] text-slate-400 italic">
+        Total = Rate × Landscape Area ({Number(landscapeSqft || 0).toLocaleString()} Sq. Ft — set in Step 1)
+      </div>
+      <div className="flex justify-between items-center text-[10px] font-bold text-slate-700 border-t border-slate-200 pt-1.5">
+        <span>SUB TOTAL</span><span className="text-blue-700">{formatPKR(subtotal)}</span>
+      </div>
+    </div>
+  )
+}
+
+// ─── NEW: Top Supervision Panel (No. of Visits × Rate per Visit) ─────────────
+function TopSupervisionPanel({ items, setItems }) {
+  function updateField(idx, key, val) {
+    setItems(prev => prev.map((it, i) => i === idx ? { ...it, [key]: key === 'position' ? val : (parseFloat(val) || 0) } : it))
+  }
+  function toggleChecked(idx, val) {
+    setItems(prev => prev.map((it, i) => i === idx ? { ...it, checked: val } : it))
+  }
+  function toggleAll(val) {
+    setItems(prev => prev.map(it => ({ ...it, checked: val })))
+  }
+  function addRow() {
+    setItems(prev => [...prev, { id: `sup_${Date.now()}`, position: 'New Position — Site Visits', visits: 0, rate: 0, checked: true }])
+  }
+  function removeRow(idx) {
+    setItems(prev => prev.filter((_, i) => i !== idx))
+  }
+  const subtotal = getSupervisionTotal(items)
+  const allChecked = items.length > 0 && items.every(it => it.checked !== false)
+  return (
+    <div className="border border-slate-200 rounded-xl p-3 bg-slate-50/50 space-y-2">
+      <div className="flex justify-between items-center">
+        <h3 className="font-bold text-slate-900 text-[12px] flex items-center">
+          <i className="fa-solid fa-user-tie mr-1.5 text-blue-600"></i> Top Supervision (Site Visits)
+        </h3>
+        <button onClick={addRow} className="text-[9px] bg-blue-600 hover:bg-blue-700 text-white font-bold px-1.5 py-0.5 rounded shadow-sm transition-colors">+ Add</button>
+      </div>
+      <div className="overflow-x-auto custom-scrollbar">
+        <table className="w-full text-left border-collapse text-[10px] min-w-[460px]">
+          <thead>
+            <tr className="bg-slate-900 text-white uppercase tracking-wider text-[9px] font-bold">
+              <th className="py-1.5 px-2 w-8 text-center">
+                <input type="checkbox" checked={allChecked} onChange={e => toggleAll(e.target.checked)}
+                  title="Select / deselect whole package"
+                  className="w-3.5 h-3.5 border-slate-300 rounded text-blue-600 focus:ring-blue-500 cursor-pointer" />
+              </th>
+              <th className="py-1.5 px-2">Position / Scope</th>
+              <th className="py-1.5 px-2 text-right w-20">No. of Visits</th>
+              <th className="py-1.5 px-2 text-right w-24">Rate/Visit (PKR)</th>
+              <th className="py-1.5 px-2 text-right w-24">Total (PKR)</th>
+              <th className="py-1.5 px-2 w-8 text-center">Rem</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-200 bg-white">
+            {items.map((it, idx) => {
+              const isChecked = it.checked !== false
+              const rowTotal = isChecked ? (Number(it.visits)||0) * (Number(it.rate)||0) : 0
+              return (
+                <tr key={it.id} className={isChecked ? 'bg-blue-50/30' : ''}>
+                  <td className="py-1.5 px-2 text-center">
+                    <input type="checkbox" checked={isChecked} onChange={e => toggleChecked(idx, e.target.checked)}
+                      className="w-3.5 h-3.5 border-slate-300 rounded text-blue-600 focus:ring-blue-500 cursor-pointer" />
+                  </td>
+                  <td className="py-1.5 px-2">
+                    <input type="text" value={it.position} onChange={e => updateField(idx, 'position', e.target.value)}
+                      className="w-full bg-transparent border-b border-transparent hover:border-slate-300 focus:border-blue-500 focus:outline-none text-slate-700 font-medium" />
+                  </td>
+                  <td className="py-1.5 px-2 text-right">
+                    <input type="number" value={it.visits} onChange={e => updateField(idx, 'visits', e.target.value)}
+                      className="w-16 text-right px-1 py-0.5 bg-white border border-slate-200 rounded font-semibold text-slate-800" />
+                  </td>
+                  <td className="py-1.5 px-2 text-right">
+                    <input type="number" value={it.rate} onChange={e => updateField(idx, 'rate', e.target.value)}
+                      className="w-20 text-right px-1 py-0.5 bg-white border border-slate-200 rounded font-semibold text-slate-800" />
+                  </td>
+                  <td className="py-1.5 px-2 text-right font-bold text-slate-800">{formatPKR(rowTotal)}</td>
+                  <td className="py-1.5 px-2 text-center">
+                    <button onClick={() => removeRow(idx)} className="text-slate-300 hover:text-red-500"><i className="fa-solid fa-trash-can text-[10px]"></i></button>
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
+      <div className="flex justify-between items-center text-[10px] font-bold text-slate-700 border-t border-slate-200 pt-1.5">
+        <span>SUB TOTAL</span><span className="text-blue-700">{formatPKR(subtotal)}</span>
+      </div>
+    </div>
+  )
+}
+
+// ─── NEW: Resident Engineering & Supervision Team Panel (Personnel × Monthly Cost × Duration) ──
+function ResidentTeamPanel({ items, setItems, months }) {
+  function updateField(idx, key, val) {
+    setItems(prev => prev.map((it, i) => i === idx ? { ...it, [key]: key === 'position' ? val : (parseFloat(val) || 0) } : it))
+  }
+  function toggleChecked(idx, val) {
+    setItems(prev => prev.map((it, i) => i === idx ? { ...it, checked: val } : it))
+  }
+  function toggleAll(val) {
+    setItems(prev => prev.map(it => ({ ...it, checked: val })))
+  }
+  function addRow() {
+    setItems(prev => [...prev, { id: `res_${Date.now()}`, position: 'New Position', personnel: 1, monthlyCost: 0, checked: true }])
+  }
+  function removeRow(idx) {
+    setItems(prev => prev.filter((_, i) => i !== idx))
+  }
+  const subtotal = getResidentTeamTotal(items, months)
+  const allChecked = items.length > 0 && items.every(it => it.checked !== false)
+  return (
+    <div className="border border-slate-200 rounded-xl p-3 bg-slate-50/50 space-y-2">
+      <div className="flex justify-between items-center">
+        <h3 className="font-bold text-slate-900 text-[12px] flex items-center">
+          <i className="fa-solid fa-people-group mr-1.5 text-blue-600"></i> Resident Engineering & Supervision Team
+        </h3>
+        <button onClick={addRow} className="text-[9px] bg-blue-600 hover:bg-blue-700 text-white font-bold px-1.5 py-0.5 rounded shadow-sm transition-colors">+ Add</button>
+      </div>
+      <div className="overflow-x-auto custom-scrollbar">
+        <table className="w-full text-left border-collapse text-[10px] min-w-[480px]">
+          <thead>
+            <tr className="bg-slate-900 text-white uppercase tracking-wider text-[9px] font-bold">
+              <th className="py-1.5 px-2 w-8 text-center">
+                <input type="checkbox" checked={allChecked} onChange={e => toggleAll(e.target.checked)}
+                  title="Select / deselect whole package"
+                  className="w-3.5 h-3.5 border-slate-300 rounded text-blue-600 focus:ring-blue-500 cursor-pointer" />
+              </th>
+              <th className="py-1.5 px-2">Position</th>
+              <th className="py-1.5 px-2 text-right w-16">No. of Personnel</th>
+              <th className="py-1.5 px-2 text-right w-24">Monthly Cost/Person (PKR)</th>
+              <th className="py-1.5 px-2 text-right w-24">Total (PKR)</th>
+              <th className="py-1.5 px-2 w-8 text-center">Rem</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-200 bg-white">
+            {items.map((it, idx) => {
+              const isChecked = it.checked !== false
+              const rowTotal = isChecked ? (Number(it.personnel)||0) * (Number(it.monthlyCost)||0) * (Number(months)||0) : 0
+              return (
+                <tr key={it.id} className={isChecked ? 'bg-blue-50/30' : ''}>
+                  <td className="py-1.5 px-2 text-center">
+                    <input type="checkbox" checked={isChecked} onChange={e => toggleChecked(idx, e.target.checked)}
+                      className="w-3.5 h-3.5 border-slate-300 rounded text-blue-600 focus:ring-blue-500 cursor-pointer" />
+                  </td>
+                  <td className="py-1.5 px-2">
+                    <input type="text" value={it.position} onChange={e => updateField(idx, 'position', e.target.value)}
+                      className="w-full bg-transparent border-b border-transparent hover:border-slate-300 focus:border-blue-500 focus:outline-none text-slate-700 font-medium" />
+                  </td>
+                  <td className="py-1.5 px-2 text-right">
+                    <input type="number" value={it.personnel} onChange={e => updateField(idx, 'personnel', e.target.value)}
+                      className="w-14 text-right px-1 py-0.5 bg-white border border-slate-200 rounded font-semibold text-slate-800" />
+                  </td>
+                  <td className="py-1.5 px-2 text-right">
+                    <input type="number" value={it.monthlyCost} onChange={e => updateField(idx, 'monthlyCost', e.target.value)}
+                      className="w-20 text-right px-1 py-0.5 bg-white border border-slate-200 rounded font-semibold text-slate-800" />
+                  </td>
+                  <td className="py-1.5 px-2 text-right font-bold text-slate-800">{formatPKR(rowTotal)}</td>
+                  <td className="py-1.5 px-2 text-center">
+                    <button onClick={() => removeRow(idx)} className="text-slate-300 hover:text-red-500"><i className="fa-solid fa-trash-can text-[10px]"></i></button>
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
+      <div className="text-[9px] text-slate-400 italic">
+        Total Cost = No. of Personnel × Monthly Cost × Project Duration ({months || 0} {Number(months) === 1 ? 'Month' : 'Months'} — set in Step 1)
+      </div>
+      <div className="flex justify-between items-center text-[10px] font-bold text-slate-700 border-t border-slate-200 pt-1.5">
+        <span>SUB TOTAL</span><span className="text-blue-700">{formatPKR(subtotal)}</span>
+      </div>
+    </div>
+  )
+}
+
+// ─── NEW: Negative List Panel (items not included / excluded from scope — starts empty) ──
+function NegativeListPanel({ title, setTitle, items, setItems }) {
+  const [draft, setDraft] = useState('')
+  function addItem() {
+    if (!draft.trim()) return
+    setItems(prev => [...prev, { id: `neg_${Date.now()}`, text: draft.trim() }])
+    setDraft('')
+  }
+  function removeItem(id) {
+    setItems(prev => prev.filter(i => i.id !== id))
+  }
+  return (
+    <div className="border border-slate-200 rounded-xl p-3 bg-slate-50/50 space-y-2">
+      <div className="flex items-center justify-between">
+        <input type="text" value={title} onChange={e => setTitle(e.target.value)}
+          className="font-bold text-slate-900 text-[12px] bg-transparent border-b border-transparent hover:border-slate-300 focus:border-blue-500 focus:outline-none px-0.5 flex items-center" />
+      </div>
+      <p className="text-[9px] text-slate-400">Items the client should procure separately, or scope explicitly excluded from this proposal.</p>
+      <div className="flex gap-2">
+        <input type="text" value={draft} onChange={e => setDraft(e.target.value)}
+          onKeyDown={e => { if (e.key === 'Enter') addItem() }}
+          placeholder="e.g. Network Switches / Routers"
+          className="flex-grow px-2.5 py-1.5 bg-white border border-slate-200 rounded-lg text-[11px] focus:outline-none focus:ring-1 focus:ring-blue-500 text-slate-800" />
+        <button onClick={addItem} className="bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-3 rounded-lg shadow-sm transition-colors flex items-center gap-1 flex-shrink-0">
+          <i className="fa-solid fa-plus text-[9px]"></i> Add
+        </button>
+      </div>
+      <div className="space-y-1.5 max-h-40 overflow-y-auto custom-scrollbar">
+        {items.length === 0 ? (
+          <p className="text-[10px] text-slate-400 italic py-2 text-center">No items added yet.</p>
+        ) : items.map(it => (
+          <div key={it.id} className="flex items-center justify-between bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-[11px] text-slate-700">
+            <span className="truncate pr-2">{it.text}</span>
+            <button onClick={() => removeItem(it.id)} className="text-slate-300 hover:text-red-500 flex-shrink-0"><i className="fa-solid fa-trash-can text-[10px]"></i></button>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 // ─── Main App ─────────────────────────────────────────────────────────────────
 export default function App() {
   // Core state
   const [clientName, setClientName] = useState('Engro Polymer')
   const [projectName, setProjectName] = useState('Workspace Extension Project')
   const [sqft, setSqft] = useState(5130)
+  const [landscapeSqft, setLandscapeSqft] = useState(0)
+  const [projectDurationMonths, setProjectDurationMonths] = useState(1)
   const [strategy, setStrategy] = useState('optimal')
   const [currentStep, setCurrentStep] = useState(1)
   const [darkMode, setDarkMode] = useState(false)
   const [deliverables, setDeliverables] = useState(JSON.parse(JSON.stringify(INITIAL_DELIVERABLES)))
   const [milestones, setMilestones] = useState(JSON.parse(JSON.stringify(INITIAL_MILESTONES)))
   const [timelinePhases, setTimelinePhases] = useState(JSON.parse(JSON.stringify(INITIAL_TIMELINE)))
+  const [topSupervisionItems, setTopSupervisionItems] = useState(JSON.parse(JSON.stringify(INITIAL_TOP_SUPERVISION)))
+  const [residentTeamItems, setResidentTeamItems] = useState(JSON.parse(JSON.stringify(INITIAL_RESIDENT_TEAM)))
+  const [reportMode, setReportMode] = useState('summary') // 'summary' | 'detailed'
+  const [negativeListTitle, setNegativeListTitle] = useState('Negative List')
+  const [negativeListItems, setNegativeListItems] = useState([])
   const [savedProposals, setSavedProposals] = useState(JSON.parse(JSON.stringify(INITIAL_PROPOSALS)))
   const [loadedVersionId, setLoadedVersionId] = useState(null)
   const [notification, setNotification] = useState(null)
@@ -937,7 +1463,11 @@ export default function App() {
     return () => document.removeEventListener('mousedown', handleOutsideClick)
   }, [versionsOpen])
 
-  const { subtotal, tax, grandTotal } = calcTotals(deliverables, sqft, strategy)
+  const { subtotal: taxableSubtotal, tax } = calcTotals(deliverables, sqft, strategy, landscapeSqft)
+  const supervisionTotal = getSupervisionTotal(topSupervisionItems)
+  const residentTeamTotal = getResidentTeamTotal(residentTeamItems, projectDurationMonths)
+  const subtotal = taxableSubtotal + supervisionTotal + residentTeamTotal
+  const grandTotal = subtotal + tax
 
   // Status tag
   let statusTag = 'Unsaved workspace draft'
@@ -980,10 +1510,15 @@ export default function App() {
   }
 
   function triggerNewQuotation() {
-    setClientName(''); setSqft(0); setStrategy('optimal'); setLoadedVersionId(null)
+    setClientName(''); setSqft(0); setLandscapeSqft(0); setProjectDurationMonths(1); setStrategy('optimal'); setLoadedVersionId(null)
     setDeliverables(JSON.parse(JSON.stringify(INITIAL_DELIVERABLES)))
     setMilestones(JSON.parse(JSON.stringify(INITIAL_MILESTONES)))
     setTimelinePhases(JSON.parse(JSON.stringify(INITIAL_TIMELINE)))
+    setTopSupervisionItems(JSON.parse(JSON.stringify(INITIAL_TOP_SUPERVISION)))
+    setResidentTeamItems(JSON.parse(JSON.stringify(INITIAL_RESIDENT_TEAM)))
+    setReportMode('summary')
+    setNegativeListTitle('Negative List')
+    setNegativeListItems([])
     setCurrentStep(1)
     showNotif('New Quotation Initialized', 'Client details, square footage and plan matrices have been reset to a pristine draft.')
   }
@@ -997,29 +1532,63 @@ export default function App() {
     const snapshot = {
       id: targetId, clientName: clientName || 'Unspecified Client',
       projectName: projectName || 'Workspace Extension Project',
-      sqft, strategy, subtotal, grandTotal, tax,
+      sqft, landscapeSqft, projectDurationMonths, strategy, subtotal, grandTotal, tax,
       timestamp: new Date().toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' }),
       milestones: JSON.parse(JSON.stringify(milestones)),
       timelinePhases: JSON.parse(JSON.stringify(timelinePhases)),
-      deliverables: JSON.parse(JSON.stringify(deliverables))
+      deliverables: JSON.parse(JSON.stringify(deliverables)),
+      topSupervisionItems: JSON.parse(JSON.stringify(topSupervisionItems)),
+      residentTeamItems: JSON.parse(JSON.stringify(residentTeamItems)),
+      negativeListTitle,
+      negativeListItems: JSON.parse(JSON.stringify(negativeListItems))
     }
 
     // ─── STABLE PRINTING PDF ENGINE BLUEPRINT COMPILER ────────────────────────
     // Programmatically generates a table-based document layout to ensure perfect visual alignment on Drive
-    const reportItems = deliverables.filter(i => i.checked && (i.isParent || i.id.startsWith('custom_')));
-    
+    const reportRows = buildReportRows(deliverables, sqft, landscapeSqft, strategy, reportMode);
+
     let itemsTableRowsHtml = "";
-    reportItems.forEach(item => {
-      const rate = strategy === 'optimal' ? item.optimalRate : item.bufferedRate;
-      const total = rate * sqft;
-      itemsTableRowsHtml += `
-        <tr style="border-bottom: 1px solid #e2e8f0;">
-          <td style="padding: 10px 12px; font-size: 13px; color: #334155; text-align: left; font-weight: bold;">${item.description}</td>
-          <td style="padding: 10px 12px; font-size: 13px; color: #64748b; text-align: right;">${rate}</td>
-          <td style="padding: 10px 12px; font-size: 13px; color: #64748b; text-align: right;">${Number(sqft).toLocaleString()}</td>
-          <td style="padding: 10px 12px; font-size: 13px; color: #0f172a; text-align: right; font-weight: bold;">${formatPKR(total)}</td>
-        </tr>
-      `;
+    reportRows.forEach(row => {
+      if (row.type === 'note') {
+        itemsTableRowsHtml += `
+          <tr style="border-bottom: 1px solid #f1f5f9;">
+            <td colspan="4" style="padding: 6px 12px 6px 28px; font-size: 11px; color: #94a3b8;">• ${row.description}</td>
+          </tr>
+        `;
+      } else {
+        itemsTableRowsHtml += `
+          <tr style="border-bottom: 1px solid #e2e8f0;">
+            <td style="padding: 10px 12px 10px ${row.indent ? '28px' : '12px'}; font-size: 13px; color: #334155; text-align: left; font-weight: ${row.indent ? '600' : 'bold'};">${row.description}</td>
+            <td style="padding: 10px 12px; font-size: 13px; color: #64748b; text-align: right;">${row.rate}</td>
+            <td style="padding: 10px 12px; font-size: 13px; color: #64748b; text-align: right;">${Number(row.area || 0).toLocaleString()}</td>
+            <td style="padding: 10px 12px; font-size: 13px; color: #0f172a; text-align: right; font-weight: bold;">${formatPKR(row.total)}</td>
+          </tr>
+        `;
+      }
+    });
+
+    const extraRows = buildExtraRows(topSupervisionItems, residentTeamItems, projectDurationMonths, reportMode);
+    let extraRowsHtml = "";
+    extraRows.forEach(row => {
+      if (row.type === 'section') {
+        extraRowsHtml += `<tr><td colspan="4" style="padding:14px 12px 4px; font-size:11px; font-weight:900; text-transform:uppercase; color:#1e40af; letter-spacing:0.5px;">${row.description}</td></tr>`;
+      } else if (row.type === 'priced_simple') {
+        extraRowsHtml += `
+          <tr style="border-bottom: 1px solid #f1f5f9;">
+            <td style="padding: 6px 12px 6px 28px; font-size: 12px; color: #475569;">${row.description}</td>
+            <td style="padding: 6px 12px; font-size: 12px; color: #64748b; text-align:right;">${row.qty}</td>
+            <td style="padding: 6px 12px; font-size: 12px; color: #64748b; text-align:right;">${formatPKR(row.rate)}</td>
+            <td style="padding: 6px 12px; font-size: 12px; color: #0f172a; text-align:right; font-weight:bold;">${formatPKR(row.total)}</td>
+          </tr>
+        `;
+      } else if (row.type === 'subtotal') {
+        extraRowsHtml += `
+          <tr style="border-top: 1px solid #cbd5e1;">
+            <td colspan="3" style="padding: 8px 12px; font-size: 12px; font-weight:800; color:#1e293b; text-align:right;">${row.description}</td>
+            <td style="padding: 8px 12px; font-size: 12px; font-weight:900; color:#1d4ed8; text-align:right;">${formatPKR(row.total)}</td>
+          </tr>
+        `;
+      }
     });
 
     let milestoneCardsHtml = "";
@@ -1105,6 +1674,7 @@ export default function App() {
                 </thead>
                 <tbody>
                   ${itemsTableRowsHtml}
+                  ${extraRowsHtml}
                 </tbody>
               </table>
 
@@ -1131,6 +1701,13 @@ export default function App() {
                   </tr>
                 </table>
               </div>
+
+              ${negativeListItems.length > 0 ? `
+              <div style="margin-top: 20px; padding: 10px 12px; background-color: #fffbeb; border: 1px solid #fde68a; border-radius: 6px;">
+                <span style="font-size: 9px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px; color: #b45309;">${negativeListTitle || 'Negative List'}</span>
+                <p style="font-size: 10px; color: #78350f; line-height: 1.6; margin: 4px 0 0;">${negativeListItems.map(i => i.text).join(' | ')}</p>
+              </div>
+              ` : ''}
 
               <table width="100%" style="margin-top: 40px;">
                 <tr>
@@ -1226,12 +1803,18 @@ export default function App() {
     setClientName(config.clientName)
     setProjectName(config.projectName || 'Workspace Extension Project')
     setSqft(config.sqft)
+    setLandscapeSqft(config.landscapeSqft || 0)
+    setProjectDurationMonths(config.projectDurationMonths || 1)
     setStrategy(config.strategy)
     setLoadedVersionId(config.id)
     if (config.milestones) setMilestones(JSON.parse(JSON.stringify(config.milestones)))
     if (config.timelinePhases) setTimelinePhases(JSON.parse(JSON.stringify(config.timelinePhases)))
     if (config.deliverables) setDeliverables(JSON.parse(JSON.stringify(config.deliverables)))
     else setDeliverables(JSON.parse(JSON.stringify(INITIAL_DELIVERABLES)))
+    setTopSupervisionItems(config.topSupervisionItems ? JSON.parse(JSON.stringify(config.topSupervisionItems)) : JSON.parse(JSON.stringify(INITIAL_TOP_SUPERVISION)))
+    setResidentTeamItems(config.residentTeamItems ? JSON.parse(JSON.stringify(config.residentTeamItems)) : JSON.parse(JSON.stringify(INITIAL_RESIDENT_TEAM)))
+    setNegativeListTitle(config.negativeListTitle || 'Negative List')
+    setNegativeListItems(config.negativeListItems ? JSON.parse(JSON.stringify(config.negativeListItems)) : [])
     setVersionsOpen(false)
     showNotif(`Restored ${config.id}`, `Successfully loaded proposal for ${config.clientName}.`)
     setCurrentStep(1)
@@ -1296,7 +1879,14 @@ export default function App() {
           #no-print { display: flex; justify-content: flex-end; margin-bottom: 8px; }
           #no-print button { background: #ef4444; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-size: 11px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px; }
           @media print { #no-print { display: none !important; } }
-          @page { size: portrait; margin: 1cm; }
+          @page { size: portrait; margin: 14mm 12mm; }
+          /* ── Professional pagination: keep rows/cards intact, repeat table headers ── */
+          table { page-break-inside: auto; }
+          thead { display: table-header-group; }
+          tfoot { display: table-footer-group; }
+          tr, td, th { page-break-inside: avoid; page-break-after: auto; }
+          .avoid-break { page-break-inside: avoid; break-inside: avoid; }
+          .page-break-before { page-break-before: always; }
         </style>
       </head>
       <body>
@@ -1379,7 +1969,7 @@ export default function App() {
           {activeSheetInfo.name && (
             <div className="hidden md:flex items-center space-x-2 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700 text-[10px] text-slate-300 font-bold max-w-xs lg:max-w-md">
               <i className="fa-solid fa-file-excel text-emerald-400"></i>
-              <span className="truncate font-sans uppercase tracking-wide">Bound: {activeSheetInfo.name}</span>
+              <span className="truncate font-sans uppercase tracking-wide"> {activeSheetInfo.name}</span>
             </div>
           )}
 
@@ -1391,7 +1981,7 @@ export default function App() {
                 : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
             }`}>
               <i className={`fa-solid ${syncUrl ? 'fa-cloud' : 'fa-cloud-arrow-up'} text-xs`}></i>
-              <span className="hidden sm:inline">{syncUrl ? 'CLOUD SYNC ACTIVE' : 'CONNECT CLOUD'}</span>
+              <span className="hidden sm:inline">{syncUrl ? 'DataBase' : 'CONNECT DataBase'}</span>
               <span className={`w-1.5 h-1.5 rounded-full inline-block ${syncUrl ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`}></span>
             </button>
 
@@ -1414,7 +2004,7 @@ export default function App() {
                       {versionSearch ? `Search Results (${displayedVersions.length})` : `All Saved Proposals (${displayedVersions.length})`}
                     </p>
                   </div>
-                  <div className="max-h-72 overflow-y-auto custom-scrollbar divide-y divide-slate-100 font-sans">
+                  <div className="max-h-[40vh] overflow-y-auto custom-scrollbar divide-y divide-slate-100 font-sans">
                     {displayedVersions.length === 0
                       ? <div className="text-center py-5 text-slate-400 text-[10px]"><i className="fa-solid fa-box-open text-xs mb-1 block"></i>No versions archived yet</div>
                       : displayedVersions.map(p => (
@@ -1473,7 +2063,6 @@ export default function App() {
                 <i className="fa-solid fa-arrow-left text-xs"></i>
               </button>
               <div>
-                <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wider">Step {currentStep} of 3</span>
                 <h2 className="text-xs font-extrabold text-slate-950">
                   {currentStep === 1 ? 'Setup Project Details' : currentStep === 2 ? 'Add & Configure Work Scope' : 'Payment Schedule Milestones & Report Preview'}
                 </h2>
@@ -1498,7 +2087,7 @@ export default function App() {
             <div className="p-6 flex-1 min-h-0 overflow-y-auto custom-scrollbar flex flex-col justify-start items-center w-full">
               <div className="max-w-xl w-full space-y-4">
                 <div className="w-full flex items-center justify-between pb-3 border-b border-slate-100">
-                  <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wide">Configure Base Criteria</h3>
+                  <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wide"></h3>
                   <button onClick={triggerNewQuotation} className="bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg shadow-sm transition-colors flex items-center space-x-1">
                     <i className="fa-solid fa-plus text-[9px]"></i><span>NEW QUOTE</span>
                   </button>
@@ -1547,6 +2136,26 @@ export default function App() {
                       </div>
                     </div>
                   </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-[10px] font-bold uppercase text-slate-500 tracking-wider mb-1">Landscape Area (Sq. Ft.)</label>
+                      <div className="relative">
+                        <span className="absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400"><i className="fa-solid fa-tree text-xs"></i></span>
+                        <input type="number" value={landscapeSqft} onChange={e => setLandscapeSqft(parseInt(e.target.value) || 0)}
+                          className="w-full pl-8 pr-10 py-1.5 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 font-semibold text-xs text-slate-800" />
+                        <span className="absolute inset-y-0 right-0 pr-2.5 flex items-center text-[9px] font-bold text-slate-400 select-none">SqFt</span>
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-[10px] font-bold uppercase text-slate-500 tracking-wider mb-1">Project Duration (Months)</label>
+                      <div className="relative">
+                        <span className="absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400"><i className="fa-solid fa-hourglass-half text-xs"></i></span>
+                        <input type="number" value={projectDurationMonths} onChange={e => setProjectDurationMonths(parseInt(e.target.value) || 0)}
+                          className="w-full pl-8 pr-10 py-1.5 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 font-semibold text-xs text-slate-800" />
+                        <span className="absolute inset-y-0 right-0 pr-2.5 flex items-center text-[9px] font-bold text-slate-400 select-none">Mo.</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1554,7 +2163,7 @@ export default function App() {
 
           {/* STEP 2 */}
           {currentStep === 2 && (
-            <div className="flex flex-col flex-1 min-h-0">
+            <div className="flex flex-col flex-1 min-h-0 overflow-y-auto custom-scrollbar">
               <div className="p-3 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2 text-[11px] flex-shrink-0">
                 <div className="flex items-center space-x-2">
                   <span className="font-medium text-slate-500">Client:</span>
@@ -1566,7 +2175,16 @@ export default function App() {
                   <i className="fa-solid fa-plus mr-1.5"></i> Add Scope / Package
                 </button>
               </div>
-              <SpreadsheetView deliverables={deliverables} setDeliverables={setDeliverables} sqft={sqft} strategy={strategy} />
+              <div className="p-3">
+                <SpreadsheetView deliverables={deliverables} setDeliverables={setDeliverables} sqft={sqft} landscapeSqft={landscapeSqft} strategy={strategy} />
+              </div>
+              <div className="p-3 pt-0 grid grid-cols-1 lg:grid-cols-2 gap-3">
+                <div className="flex flex-col gap-3">
+                  <LandscapingPanel deliverables={deliverables} setDeliverables={setDeliverables} landscapeSqft={landscapeSqft} strategy={strategy} />
+                  <TopSupervisionPanel items={topSupervisionItems} setItems={setTopSupervisionItems} />
+                </div>
+                <ResidentTeamPanel items={residentTeamItems} setItems={setResidentTeamItems} months={projectDurationMonths} />
+              </div>
             </div>
           )}
 
@@ -1577,13 +2195,24 @@ export default function App() {
                 <MilestonesPanel milestones={milestones} setMilestones={setMilestones} subtotal={subtotal} tax={tax} grandTotal={grandTotal} />
                 <TimelinePanel timelinePhases={timelinePhases} setTimelinePhases={setTimelinePhases} />
               </div>
+              <NegativeListPanel title={negativeListTitle} setTitle={setNegativeListTitle} items={negativeListItems} setItems={setNegativeListItems} />
               {/* Report */}
               <div className="border border-slate-200 rounded-xl bg-white p-4 shadow-sm">
-                <div className="flex items-center justify-between border-b border-slate-100 pb-2 mb-3">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-2 mb-3 flex-wrap gap-2">
                   <h4 className="font-extrabold text-slate-900 text-xs flex items-center">
                     <i className="fa-solid fa-file-invoice-dollar mr-1.5 text-blue-600"></i> Corporate Quotation Report
                   </h4>
                   <div className="flex items-center space-x-2">
+                    <div className="flex items-center bg-slate-100 border border-slate-200 rounded-lg p-0.5 text-[10px] font-bold">
+                      <button onClick={() => setReportMode('summary')}
+                        className={`px-2.5 py-1 rounded-md transition-colors ${reportMode === 'summary' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
+                        Summary
+                      </button>
+                      <button onClick={() => setReportMode('detailed')}
+                        className={`px-2.5 py-1 rounded-md transition-colors ${reportMode === 'detailed' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
+                        Detailed
+                      </button>
+                    </div>
                     <button onClick={handlePrint}
                       className="bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-semibold px-2.5 py-1.5 rounded shadow-sm flex items-center transition-all active:scale-95">
                       <i className="fa-solid fa-print mr-1.5"></i> Print / Save PDF
@@ -1596,9 +2225,13 @@ export default function App() {
                 </div>
                 <PrintableReport
                   clientName={clientName} projectName={projectName}
-                  sqft={sqft} strategy={strategy}
+                  sqft={sqft} landscapeSqft={landscapeSqft} strategy={strategy}
                   deliverables={deliverables} milestones={milestones}
                   invitationText={invitationText} setInvitationText={setInvitationText}
+                  reportMode={reportMode}
+                  topSupervisionItems={topSupervisionItems} residentTeamItems={residentTeamItems}
+                  projectDurationMonths={projectDurationMonths}
+                  negativeListTitle={negativeListTitle} negativeListItems={negativeListItems}
                 />
               </div>
             </div>
