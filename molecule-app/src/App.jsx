@@ -3,51 +3,51 @@ import { useState, useEffect, useRef } from 'react'
 // ─── Initial Data ────────────────────────────────────────────────────────────
 
 const INITIAL_DELIVERABLES = [
-  { id:"1_parent", phase:"ONE", code:"ONE", description:"CONCEPT DESIGN (Complete Phase Deliverables)", optimalRate:40, bufferedRate:40, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["1_1","1_2"] },
-  { id:"1_1", phase:"ONE", code:"1", description:"Planning & Schematic layout", optimalRate:20, bufferedRate:20, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"1_2", phase:"ONE", code:"2", description:"Concept Mood Boards & References", optimalRate:20, bufferedRate:20, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"2_parent", phase:"TWO", code:"TWO", description:"DESIGN DEVELOPMENT - INTERIOR (Detailed Phases)", optimalRate:90, bufferedRate:90, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["2_1","2_2","2_3","2_4","2_5","2_6"] },
-  { id:"2_1", phase:"TWO", code:"1", description:"Interior Elevations", optimalRate:15, bufferedRate:15, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"2_2", phase:"TWO", code:"2", description:"2D Interior Sections", optimalRate:15, bufferedRate:15, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"2_3", phase:"TWO", code:"3", description:"3D Design Modelling", optimalRate:25, bufferedRate:25, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"2_4", phase:"TWO", code:"4", description:"Detail Design & Renders", optimalRate:15, bufferedRate:15, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"2_5", phase:"TWO", code:"5", description:"Selection of Finishes & Materials", optimalRate:10, bufferedRate:10, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"2_6", phase:"TWO", code:"6", description:"Furniture Layout Plan, Design & Finishes", optimalRate:10, bufferedRate:10, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"3_parent", phase:"THREE", code:"THREE", description:"DRAWING DEVELOPMENT (Interior - Tender Package)", optimalRate:75, bufferedRate:75, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["3_1"] },
-  { id:"3_1", phase:"THREE", code:"1", description:"Interior Working Drawings (Plans, Sections, Elevations, Details)", optimalRate:75, bufferedRate:75, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"4_parent", phase:"FOUR", code:"FOUR", description:"BOQ DEVELOPMENT (Interior - Tender Package)", optimalRate:45, bufferedRate:45, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["4_1","4_2"] },
-  { id:"4_1", phase:"FOUR", code:"1", description:"Interior Scope", optimalRate:25, bufferedRate:25, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"4_2", phase:"FOUR", code:"2", description:"Furniture Details", optimalRate:20, bufferedRate:20, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"5_parent", phase:"FIVE", code:"FIVE", description:"DESIGN PACKAGE (MEP Design Standard Group)", optimalRate:36, bufferedRate:36, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["5_1","5_2","5_3","5_4"] },
-  { id:"5_1", phase:"FIVE", code:"1", description:"Electrical Drawings", optimalRate:9, bufferedRate:9, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"5_2", phase:"FIVE", code:"2", description:"Plumbing Drawings", optimalRate:9, bufferedRate:9, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"5_3", phase:"FIVE", code:"3", description:"Fire Fighting Drawings", optimalRate:9, bufferedRate:9, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"5_4", phase:"FIVE", code:"4", description:"HVAC Air Conditioning", optimalRate:9, bufferedRate:9, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"6_parent", phase:"SIX", code:"SIX", description:"BOQ DEVELOPMENT (MEP Design Deliverable Group)", optimalRate:24, bufferedRate:24, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["6_1"] },
-  { id:"6_1", phase:"SIX", code:"1", description:"MEP BOQ Estimates", optimalRate:24, bufferedRate:24, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
+  { id:"1_parent", phase:"ONE", code:"ONE", description:"CONCEPT DESIGN (Complete Phase Deliverables)", optimalRate:40, bufferedRate:40, isParent:true, checked:false, section:"Design Fees", taxRate:15, subItems:["1_1","1_2"] },
+  { id:"1_1", phase:"ONE", code:"1", description:"Planning & Schematic layout", optimalRate:20, bufferedRate:20, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"1_2", phase:"ONE", code:"2", description:"Concept Mood Boards & References", optimalRate:20, bufferedRate:20, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"2_parent", phase:"TWO", code:"TWO", description:"DESIGN DEVELOPMENT - INTERIOR (Detailed Phases)", optimalRate:90, bufferedRate:90, isParent:true, checked:false, section:"Design Fees", taxRate:15, subItems:["2_1","2_2","2_3","2_4","2_5","2_6"] },
+  { id:"2_1", phase:"TWO", code:"1", description:"Interior Elevations", optimalRate:15, bufferedRate:15, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"2_2", phase:"TWO", code:"2", description:"2D Interior Sections", optimalRate:15, bufferedRate:15, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"2_3", phase:"TWO", code:"3", description:"3D Design Modelling", optimalRate:25, bufferedRate:25, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"2_4", phase:"TWO", code:"4", description:"Detail Design & Renders", optimalRate:15, bufferedRate:15, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"2_5", phase:"TWO", code:"5", description:"Selection of Finishes & Materials", optimalRate:10, bufferedRate:10, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"2_6", phase:"TWO", code:"6", description:"Furniture Layout Plan, Design & Finishes", optimalRate:10, bufferedRate:10, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"3_parent", phase:"THREE", code:"THREE", description:"DRAWING DEVELOPMENT (Interior - Tender Package)", optimalRate:75, bufferedRate:75, isParent:true, checked:false, section:"Design Fees", taxRate:15, subItems:["3_1"] },
+  { id:"3_1", phase:"THREE", code:"1", description:"Interior Working Drawings (Plans, Sections, Elevations, Details)", optimalRate:75, bufferedRate:75, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"4_parent", phase:"FOUR", code:"FOUR", description:"BOQ DEVELOPMENT (Interior - Tender Package)", optimalRate:45, bufferedRate:45, isParent:true, checked:false, section:"Design Fees", taxRate:15, subItems:["4_1","4_2"] },
+  { id:"4_1", phase:"FOUR", code:"1", description:"Interior Scope", optimalRate:25, bufferedRate:25, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"4_2", phase:"FOUR", code:"2", description:"Furniture Details", optimalRate:20, bufferedRate:20, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"5_parent", phase:"FIVE", code:"FIVE", description:"DESIGN PACKAGE (MEP Design Standard Group)", optimalRate:36, bufferedRate:36, isParent:true, checked:false, section:"Design Fees", taxRate:15, subItems:["5_1","5_2","5_3","5_4"] },
+  { id:"5_1", phase:"FIVE", code:"1", description:"Electrical Drawings", optimalRate:9, bufferedRate:9, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"5_2", phase:"FIVE", code:"2", description:"Plumbing Drawings", optimalRate:9, bufferedRate:9, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"5_3", phase:"FIVE", code:"3", description:"Fire Fighting Drawings", optimalRate:9, bufferedRate:9, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"5_4", phase:"FIVE", code:"4", description:"HVAC Air Conditioning", optimalRate:9, bufferedRate:9, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"6_parent", phase:"SIX", code:"SIX", description:"BOQ DEVELOPMENT (MEP Design Deliverable Group)", optimalRate:24, bufferedRate:24, isParent:true, checked:false, section:"Design Fees", taxRate:15, subItems:["6_1"] },
+  { id:"6_1", phase:"SIX", code:"1", description:"MEP BOQ Estimates", optimalRate:24, bufferedRate:24, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
 
-  // ── NEW: Architecture, Structure & Facade Engineering consultancy fees ──
-  { id:"7_parent", phase:"SEVEN", code:"SEVEN", description:"ARCHITECTURE (Concept & Design Development)", optimalRate:66, bufferedRate:66, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["7_1","7_2","7_3"] },
-  { id:"7_1", phase:"SEVEN", code:"1", description:"Project Initiation", optimalRate:12, bufferedRate:12, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"7_2", phase:"SEVEN", code:"2", description:"Concept Design", optimalRate:18, bufferedRate:18, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"7_3", phase:"SEVEN", code:"3", description:"Design Development", optimalRate:36, bufferedRate:36, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"8_parent", phase:"EIGHT", code:"EIGHT", description:"ARCHITECTURE (Tender Package)", optimalRate:54, bufferedRate:54, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["8_1","8_2"] },
-  { id:"8_1", phase:"EIGHT", code:"1", description:"Drawing Development", optimalRate:36, bufferedRate:36, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"8_2", phase:"EIGHT", code:"2", description:"BOQ Development", optimalRate:18, bufferedRate:18, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"9_parent", phase:"NINE", code:"NINE", description:"STRUCTURE (Project Initiation)", optimalRate:5, bufferedRate:5, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["9_1"] },
-  { id:"9_1", phase:"NINE", code:"1", description:"Project Initiation", optimalRate:5, bufferedRate:5, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"10_parent", phase:"TEN", code:"TEN", description:"STRUCTURE (Tender Package)", optimalRate:45, bufferedRate:45, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["10_1","10_2"] },
-  { id:"10_1", phase:"TEN", code:"1", description:"Drawing Development", optimalRate:30, bufferedRate:30, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"10_2", phase:"TEN", code:"2", description:"BOQ Development", optimalRate:15, bufferedRate:15, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"11_parent", phase:"ELEVEN", code:"ELEVEN", description:"FACADE ENGINEERING (Concept & Design Development)", optimalRate:70, bufferedRate:70, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["11_1","11_2","11_3"] },
-  { id:"11_1", phase:"ELEVEN", code:"1", description:"Project Initiation", optimalRate:8, bufferedRate:8, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"11_2", phase:"ELEVEN", code:"2", description:"Concept Design", optimalRate:18, bufferedRate:18, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"11_3", phase:"ELEVEN", code:"3", description:"Design Development", optimalRate:44, bufferedRate:44, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"12_parent", phase:"TWELVE", code:"TWELVE", description:"FACADE ENGINEERING (Tender Package)", optimalRate:63, bufferedRate:63, isParent:true, checked:true, section:"Design Fees", taxRate:15, subItems:["12_1","12_2"] },
-  { id:"12_1", phase:"TWELVE", code:"1", description:"Drawing Development", optimalRate:48, bufferedRate:48, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
-  { id:"12_2", phase:"TWELVE", code:"2", description:"BOQ Development", optimalRate:15, bufferedRate:15, isParent:false, checked:true, taxRate:15, section:"Design Fees" },
+  // ── Architecture, Structure & Facade Engineering consultancy fees ──
+  { id:"7_parent", phase:"SEVEN", code:"SEVEN", description:"ARCHITECTURE (Concept & Design Development)", optimalRate:66, bufferedRate:66, isParent:true, checked:false, section:"Design Fees", taxRate:15, subItems:["7_1","7_2","7_3"] },
+  { id:"7_1", phase:"SEVEN", code:"1", description:"Project Initiation", optimalRate:12, bufferedRate:12, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"7_2", phase:"SEVEN", code:"2", description:"Concept Design", optimalRate:18, bufferedRate:18, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"7_3", phase:"SEVEN", code:"3", description:"Design Development", optimalRate:36, bufferedRate:36, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"8_parent", phase:"EIGHT", code:"EIGHT", description:"ARCHITECTURE (Tender Package)", optimalRate:54, bufferedRate:54, isParent:true, checked:false, section:"Design Fees", taxRate:15, subItems:["8_1","8_2"] },
+  { id:"8_1", phase:"EIGHT", code:"1", description:"Drawing Development", optimalRate:36, bufferedRate:36, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"8_2", phase:"EIGHT", code:"2", description:"BOQ Development", optimalRate:18, bufferedRate:18, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"9_parent", phase:"NINE", code:"NINE", description:"STRUCTURE (Project Initiation)", optimalRate:5, bufferedRate:5, isParent:true, checked:false, section:"Design Fees", taxRate:15, subItems:["9_1"] },
+  { id:"9_1", phase:"NINE", code:"1", description:"Project Initiation", optimalRate:5, bufferedRate:5, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"10_parent", phase:"TEN", code:"TEN", description:"STRUCTURE (Tender Package)", optimalRate:45, bufferedRate:45, isParent:true, checked:false, section:"Design Fees", taxRate:15, subItems:["10_1","10_2"] },
+  { id:"10_1", phase:"TEN", code:"1", description:"Drawing Development", optimalRate:30, bufferedRate:30, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"10_2", phase:"TEN", code:"2", description:"BOQ Development", optimalRate:15, bufferedRate:15, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"11_parent", phase:"ELEVEN", code:"ELEVEN", description:"FACADE ENGINEERING (Concept & Design Development)", optimalRate:70, bufferedRate:70, isParent:true, checked:false, section:"Design Fees", taxRate:15, subItems:["11_1","11_2","11_3"] },
+  { id:"11_1", phase:"ELEVEN", code:"1", description:"Project Initiation", optimalRate:8, bufferedRate:8, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"11_2", phase:"ELEVEN", code:"2", description:"Concept Design", optimalRate:18, bufferedRate:18, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"11_3", phase:"ELEVEN", code:"3", description:"Design Development", optimalRate:44, bufferedRate:44, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"12_parent", phase:"TWELVE", code:"TWELVE", description:"FACADE ENGINEERING (Tender Package)", optimalRate:63, bufferedRate:63, isParent:true, checked:false, section:"Design Fees", taxRate:15, subItems:["12_1","12_2"] },
+  { id:"12_1", phase:"TWELVE", code:"1", description:"Drawing Development", optimalRate:48, bufferedRate:48, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
+  { id:"12_2", phase:"TWELVE", code:"2", description:"BOQ Development", optimalRate:15, bufferedRate:15, isParent:false, checked:false, taxRate:15, section:"Design Fees" },
 
-  // ── Fit-Out Scope (full package detail) ──
+  // ── Fit-Out Scope (full package detail) — unchanged, already unselected by default ──
   { id:"fitout_1", phase:"FITOUT", code:"1.0", description:"ID Scope (Civil, Finishes & FF&E)", optimalRate:5500, bufferedRate:7000, isParent:true, checked:false, section:"Fit-Out Scope", taxRate:15, subItems:["fitout_1_1","fitout_1_2","fitout_1_3","fitout_1_4","fitout_1_5","fitout_1_6","fitout_1_7","fitout_1_8","fitout_1_9","fitout_1_10","fitout_1_11","fitout_1_12","fitout_1_13","fitout_1_14","fitout_1_15","fitout_1_16","fitout_1_17","fitout_1_18","fitout_1_19","fitout_1_20","fitout_1_21"] },
   { id:"fitout_1_1", phase:"FITOUT", code:"i", description:"Façade Protection Partitions", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
   { id:"fitout_1_2", phase:"FITOUT", code:"ii", description:"Dismantling Scope", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
@@ -128,12 +128,12 @@ const INITIAL_DELIVERABLES = [
   { id:"fitout_6_9", phase:"FITOUT", code:"ix", description:"Earthing & Bonding", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
   { id:"fitout_6_10", phase:"FITOUT", code:"x", description:"Access Lock - Restricted to Authorised Personnel Only", optimalRate:0, bufferedRate:0, isParent:false, checked:false, taxRate:15, section:"Fit-Out Scope" },
 
-  // ── NEW: Landscaping (permanent, always visible like Design Fees) ──
-  { id:"land_1", phase:"ONE", code:"ONE", description:"PROJECT INITIATION (Site Inspection, Survey & Analysis, Timeline & High-Level Budget)", optimalRate:0, bufferedRate:0, isParent:true, checked:true, section:"Landscaping", taxRate:15, subItems:[] },
-  { id:"land_2", phase:"TWO", code:"TWO", description:"CONCEPT DESIGN (Landscape Master Plan, Concept Moodboards & References, Softscape/Hardscape Strategy)", optimalRate:0, bufferedRate:0, isParent:true, checked:true, section:"Landscaping", taxRate:15, subItems:[] },
-  { id:"land_3", phase:"THREE", code:"THREE", description:"DESIGN DEVELOPMENT (Planting Plans, Hardscape Details, Irrigation & Drainage Concept, 3D Visualisation)", optimalRate:0, bufferedRate:0, isParent:true, checked:true, section:"Landscaping", taxRate:15, subItems:[] },
-  { id:"land_4", phase:"FOUR", code:"FOUR", description:"DRAWING DEVELOPMENT (Landscape - Tender Package: Working Drawings, Planting Schedules, Irrigation Layouts)", optimalRate:0, bufferedRate:0, isParent:true, checked:true, section:"Landscaping", taxRate:15, subItems:[] },
-  { id:"land_5", phase:"FIVE", code:"FIVE", description:"BOQ DEVELOPMENT (Landscape - Tender Package: Landscape, Hardscape & Softscape)", optimalRate:0, bufferedRate:0, isParent:true, checked:true, section:"Landscaping", taxRate:15, subItems:[] },
+  // ── Landscaping (permanent, always visible like Design Fees) ──
+  { id:"land_1", phase:"ONE", code:"ONE", description:"PROJECT INITIATION (Site Inspection, Survey & Analysis, Timeline & High-Level Budget)", optimalRate:0, bufferedRate:0, isParent:true, checked:false, section:"Landscaping", taxRate:15, subItems:[] },
+  { id:"land_2", phase:"TWO", code:"TWO", description:"CONCEPT DESIGN (Landscape Master Plan, Concept Moodboards & References, Softscape/Hardscape Strategy)", optimalRate:0, bufferedRate:0, isParent:true, checked:false, section:"Landscaping", taxRate:15, subItems:[] },
+  { id:"land_3", phase:"THREE", code:"THREE", description:"DESIGN DEVELOPMENT (Planting Plans, Hardscape Details, Irrigation & Drainage Concept, 3D Visualisation)", optimalRate:0, bufferedRate:0, isParent:true, checked:false, section:"Landscaping", taxRate:15, subItems:[] },
+  { id:"land_4", phase:"FOUR", code:"FOUR", description:"DRAWING DEVELOPMENT (Landscape - Tender Package: Working Drawings, Planting Schedules, Irrigation Layouts)", optimalRate:0, bufferedRate:0, isParent:true, checked:false, section:"Landscaping", taxRate:15, subItems:[] },
+  { id:"land_5", phase:"FIVE", code:"FIVE", description:"BOQ DEVELOPMENT (Landscape - Tender Package: Landscape, Hardscape & Softscape)", optimalRate:0, bufferedRate:0, isParent:true, checked:false, section:"Landscaping", taxRate:15, subItems:[] },
 ]
 
 const INITIAL_MILESTONES = [
@@ -141,39 +141,35 @@ const INITIAL_MILESTONES = [
   { label:"Payment Two - Completion of Handover Deliverables", ratio:50 },
 ]
 
-const INITIAL_TIMELINE = [
-  { title:"Design Requirements", days:9, badge:"Phase 1" },
-  { title:"Interior Design Process", days:60, badge:"Phase 2" },
-  { title:"Construction & Fit-Out handover", days:120, badge:"Phase 3" },
-]
+const INITIAL_TIMELINE = []
 
-// ── NEW: Top Supervision (No. of Visits × Rate per Visit) ──
+// ── Top Supervision (No. of Visits × Rate per Visit) — unselected by default ──
 const INITIAL_TOP_SUPERVISION = [
-  { id:"sup_1", position:"Principal Architect — Site Visits", visits:0, rate:0, checked:true },
-  { id:"sup_2", position:"Senior Structural Engineer — Site Visits", visits:0, rate:0, checked:true },
-  { id:"sup_3", position:"Senior MEP Engineer — Site Visits", visits:0, rate:0, checked:true },
-  { id:"sup_4", position:"Senior Interior Designer — Site Visits", visits:0, rate:0, checked:true },
-  { id:"sup_5", position:"Senior Landscape Architect — Site Visits", visits:0, rate:0, checked:true },
-  { id:"sup_6", position:"Senior Façade Engineer — Site Visits", visits:0, rate:0, checked:true },
+  { id:"sup_1", position:"Principal Architect — Site Visits", visits:0, rate:0, checked:false },
+  { id:"sup_2", position:"Senior Structural Engineer — Site Visits", visits:0, rate:0, checked:false },
+  { id:"sup_3", position:"Senior MEP Engineer — Site Visits", visits:0, rate:0, checked:false },
+  { id:"sup_4", position:"Senior Interior Designer — Site Visits", visits:0, rate:0, checked:false },
+  { id:"sup_5", position:"Senior Landscape Architect — Site Visits", visits:0, rate:0, checked:false },
+  { id:"sup_6", position:"Senior Façade Engineer — Site Visits", visits:0, rate:0, checked:false },
 ]
 
-// ── NEW: Resident Engineering & Supervision Team (Personnel × Monthly Cost × Duration) ──
+// ── Resident Engineering & Supervision Team (Personnel × Monthly Cost × Duration) — unselected by default ──
 const INITIAL_RESIDENT_TEAM = [
-  { id:"res_1", position:"Resident Project Manager", personnel:1, monthlyCost:0, checked:true },
-  { id:"res_2", position:"Resident Architect", personnel:1, monthlyCost:0, checked:true },
-  { id:"res_3", position:"Resident Civil / Structural Engineer", personnel:1, monthlyCost:0, checked:true },
-  { id:"res_4", position:"Resident Electrical Engineer", personnel:1, monthlyCost:0, checked:true },
-  { id:"res_5", position:"Resident Mechanical / HVAC Engineer", personnel:1, monthlyCost:0, checked:true },
-  { id:"res_6", position:"Resident Plumbing & Fire-Fighting Engineer", personnel:1, monthlyCost:0, checked:true },
-  { id:"res_7", position:"Resident Quantity Surveyor / Billing Engineer", personnel:1, monthlyCost:0, checked:true },
-  { id:"res_8", position:"Resident Interior Coordinator", personnel:1, monthlyCost:0, checked:true },
-  { id:"res_9", position:"Resident Landscape Coordinator", personnel:1, monthlyCost:0, checked:true },
-  { id:"res_10", position:"Resident Façade Engineer", personnel:1, monthlyCost:0, checked:true },
-  { id:"res_11", position:"Site Inspector — Civil", personnel:2, monthlyCost:0, checked:true },
-  { id:"res_12", position:"Site Inspector — MEP", personnel:2, monthlyCost:0, checked:true },
-  { id:"res_13", position:"Health, Safety & Environment (HSE) Officer", personnel:1, monthlyCost:0, checked:true },
-  { id:"res_14", position:"Document Controller", personnel:1, monthlyCost:0, checked:true },
-  { id:"res_15", position:"Office Support / Admin", personnel:1, monthlyCost:0, checked:true },
+  { id:"res_1", position:"Resident Project Manager", personnel:1, monthlyCost:0, checked:false },
+  { id:"res_2", position:"Resident Architect", personnel:1, monthlyCost:0, checked:false },
+  { id:"res_3", position:"Resident Civil / Structural Engineer", personnel:1, monthlyCost:0, checked:false },
+  { id:"res_4", position:"Resident Electrical Engineer", personnel:1, monthlyCost:0, checked:false },
+  { id:"res_5", position:"Resident Mechanical / HVAC Engineer", personnel:1, monthlyCost:0, checked:false },
+  { id:"res_6", position:"Resident Plumbing & Fire-Fighting Engineer", personnel:1, monthlyCost:0, checked:false },
+  { id:"res_7", position:"Resident Quantity Surveyor / Billing Engineer", personnel:1, monthlyCost:0, checked:false },
+  { id:"res_8", position:"Resident Interior Coordinator", personnel:1, monthlyCost:0, checked:false },
+  { id:"res_9", position:"Resident Landscape Coordinator", personnel:1, monthlyCost:0, checked:false },
+  { id:"res_10", position:"Resident Façade Engineer", personnel:1, monthlyCost:0, checked:false },
+  { id:"res_11", position:"Site Inspector — Civil", personnel:2, monthlyCost:0, checked:false },
+  { id:"res_12", position:"Site Inspector — MEP", personnel:2, monthlyCost:0, checked:false },
+  { id:"res_13", position:"Health, Safety & Environment (HSE) Officer", personnel:1, monthlyCost:0, checked:false },
+  { id:"res_14", position:"Document Controller", personnel:1, monthlyCost:0, checked:false },
+  { id:"res_15", position:"Office Support / Admin", personnel:1, monthlyCost:0, checked:false },
 ]
 
 const INITIAL_PROPOSALS = [
@@ -187,6 +183,11 @@ const INITIAL_PROPOSALS = [
 
 function formatPKR(val) {
   return new Intl.NumberFormat('en-PK', { maximumFractionDigits: 0 }).format(val)
+}
+
+// Small shared confirm-before-delete guard used across every removable list in the app.
+function confirmDelete(label) {
+  return window.confirm(`Delete "${label}"? This can't be undone.`)
 }
 
 // Landscaping items use their own area (landscapeSqft); everything else uses the main building sqft
@@ -245,7 +246,7 @@ function getRowTotal(item, deliverables, sqft, strategy, landscapeSqft = 0) {
   return 0
 }
 
-// ── NEW: Top Supervision / Resident Team totals (only counts checked/selected rows) ──
+// ── Top Supervision / Resident Team totals (only counts checked/selected rows) ──
 function getSupervisionTotal(items) {
   return (items || []).filter(i => i.checked !== false).reduce((s, i) => s + (Number(i.visits) || 0) * (Number(i.rate) || 0), 0)
 }
@@ -253,7 +254,7 @@ function getResidentTeamTotal(items, months) {
   return (items || []).filter(i => i.checked !== false).reduce((s, i) => s + (Number(i.personnel) || 0) * (Number(i.monthlyCost) || 0) * (Number(months) || 0), 0)
 }
 
-// ── NEW: Builds the report's line-item rows for both Summary and Detailed modes ──
+// ── Builds the report's line-item rows for both Summary and Detailed modes ──
 // Shared between the live PrintableReport preview and the compiled PDF HTML, so both stay identical.
 function buildReportRows(deliverables, sqft, landscapeSqft, strategy, mode) {
   const rows = []
@@ -281,40 +282,47 @@ function buildReportRows(deliverables, sqft, landscapeSqft, strategy, mode) {
   return rows
 }
 
-// ── NEW: Builds Top Supervision & Resident Team rows for the report ──
+// ── Builds Top Supervision & Resident Team rows for the report ──
 function buildExtraRows(topSupervisionItems, residentTeamItems, months, mode) {
   const rows = []
-  const supTotal = getSupervisionTotal(topSupervisionItems)
-  rows.push({ type: 'section', description: 'Top Supervision (Site Visits)' })
-  if (mode === 'detailed') {
-    (topSupervisionItems || []).filter(it => it.checked !== false).forEach(it => {
-      rows.push({ type: 'priced_simple', description: it.position, qty: it.visits, rate: it.rate, total: (Number(it.visits)||0) * (Number(it.rate)||0) })
-    })
+  const supSelected = (topSupervisionItems || []).filter(it => it.checked !== false)
+  if (supSelected.length > 0) {
+    const supTotal = getSupervisionTotal(topSupervisionItems)
+    rows.push({ type: 'section', description: 'Top Supervision (Site Visits)' })
+    if (mode === 'detailed') {
+      supSelected.forEach(it => {
+        rows.push({ type: 'priced_simple', description: it.position, qty: it.visits, rate: it.rate, total: (Number(it.visits)||0) * (Number(it.rate)||0) })
+      })
+    }
+    rows.push({ type: 'subtotal', description: 'Top Supervision — Subtotal', total: supTotal })
   }
-  rows.push({ type: 'subtotal', description: 'Top Supervision — Subtotal', total: supTotal })
 
-  const resTotal = getResidentTeamTotal(residentTeamItems, months)
-  rows.push({ type: 'section', description: 'Resident Engineering & Supervision Team' })
-  if (mode === 'detailed') {
-    (residentTeamItems || []).filter(it => it.checked !== false).forEach(it => {
-      rows.push({ type: 'priced_simple', description: `${it.position} (x${it.personnel})`, qty: it.personnel, rate: (Number(it.monthlyCost)||0) * (Number(months)||0), total: (Number(it.personnel)||0) * (Number(it.monthlyCost)||0) * (Number(months)||0) })
-    })
+  const resSelected = (residentTeamItems || []).filter(it => it.checked !== false)
+  if (resSelected.length > 0) {
+    const resTotal = getResidentTeamTotal(residentTeamItems, months)
+    rows.push({ type: 'section', description: 'Resident Engineering & Supervision Team' })
+    if (mode === 'detailed') {
+      resSelected.forEach(it => {
+        rows.push({ type: 'priced_simple', description: `${it.position} (x${it.personnel})`, qty: it.personnel, rate: (Number(it.monthlyCost)||0) * (Number(months)||0), total: (Number(it.personnel)||0) * (Number(it.monthlyCost)||0) * (Number(months)||0) })
+      })
+    }
+    rows.push({ type: 'subtotal', description: `Resident Team — Subtotal (${months || 0} ${Number(months) === 1 ? 'Month' : 'Months'})`, total: resTotal })
   }
-  rows.push({ type: 'subtotal', description: `Resident Team — Subtotal (${months || 0} ${Number(months) === 1 ? 'Month' : 'Months'})`, total: resTotal })
 
   return rows
 }
 
-// ─── Logo image ───────────────────────────────────────────────────────────────
+// ─── SVG Logo ────────────────────────────────────────────────────────────────
 function MoleculeLogo({ size = 32 }) {
   return (
-    <img
-      src="/logo.png"
-      alt="Molecule Logo"
-      width={size}
-      height={size}
-      style={{ width: size, height: size, objectFit: 'contain', display: 'block' }}
-    />
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="45" fill="#0f172a"/>
+      <path d="M50 15L75 30V60L50 75L25 60V30L50 15Z" stroke="#2563eb" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M50 15V75" stroke="#2563eb" strokeWidth="2"/>
+      <path d="M25 30L75 60" stroke="#2563eb" strokeWidth="2"/>
+      <path d="M25 60L75 30" stroke="#2563eb" strokeWidth="2"/>
+      <path d="M50 33L65 42V58L50 67L35 58V42L50 33Z" fill="#3b82f6" opacity="0.6" stroke="#ffffff" strokeWidth="2"/>
+    </svg>
   )
 }
 
@@ -475,7 +483,7 @@ function ScopePopup({ deliverables, strategy, onClose, onApply }) {
             </div>
             <div>
               <label className="block text-[9px] font-bold uppercase text-slate-500 tracking-wider mb-1">Rate (PKR/Sq.Ft)</label>
-              <input type="number" value={customRate} onChange={e => setCustomRate(e.target.value)} className="w-full px-2.5 py-1.5 bg-white border border-slate-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 font-semibold text-slate-800" placeholder="e.g. 50" />
+              <input type="text" inputMode="decimal" onFocus={e => e.target.select()} value={customRate} onChange={e => setCustomRate(e.target.value)} className="w-full px-2.5 py-1.5 bg-white border border-slate-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 font-semibold text-slate-800" placeholder="e.g. 50" />
             </div>
           </div>
         </div>
@@ -523,7 +531,7 @@ function NestedItemPopup({ parentId, parentDesc, onClose, onSave }) {
           </div>
           <div>
             <label className="block text-[9px] font-bold uppercase text-slate-500 tracking-wider mb-1">Rate (PKR/Sq.Ft)</label>
-            <input type="number" value={rate} onChange={e => setRate(e.target.value)} className="w-full px-2.5 py-1.5 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 font-semibold text-slate-800" placeholder="e.g. 15" />
+            <input type="text" inputMode="decimal" onFocus={e => e.target.select()} value={rate} onChange={e => setRate(e.target.value)} className="w-full px-2.5 py-1.5 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 font-semibold text-slate-800" placeholder="e.g. 15" />
           </div>
         </div>
         <div className="p-3 border-t border-slate-100 bg-slate-50 rounded-b-xl flex justify-end space-x-2">
@@ -589,12 +597,39 @@ function PrintableReport({ clientName, projectName, sqft, landscapeSqft, strateg
           </div>
         </div>
 
-        {/* Editable invitation text */}
+        {/* Editable invitation text — also accepts a dragged-and-dropped image inserted right at the drop point */}
         <div className="relative group my-3">
-          <div contentEditable suppressContentEditableWarning
-            onBlur={e => setInvitationText(e.currentTarget.textContent)}
-            className="text-[10px] text-slate-600 leading-relaxed outline-none border border-transparent hover:border-slate-300 focus:border-blue-500 p-1.5 rounded transition-all cursor-pointer font-medium">
-            {invitationText}
+          <div id="invitationEditableArea" contentEditable suppressContentEditableWarning
+            onBlur={e => setInvitationText(e.currentTarget.innerHTML)}
+            onDragOver={e => e.preventDefault()}
+            onDrop={e => {
+              e.preventDefault()
+              const file = e.dataTransfer?.files?.[0]
+              if (!file || !file.type.startsWith('image/')) return
+              const reader = new FileReader()
+              reader.onload = () => {
+                const dataUrl = reader.result
+                const el = e.currentTarget
+                el.focus()
+                let range = null
+                if (document.caretRangeFromPoint) {
+                  range = document.caretRangeFromPoint(e.clientX, e.clientY)
+                } else if (document.caretPositionFromPoint) {
+                  const pos = document.caretPositionFromPoint(e.clientX, e.clientY)
+                  if (pos) { range = document.createRange(); range.setStart(pos.offsetNode, pos.offset); range.collapse(true) }
+                }
+                if (range) {
+                  const sel = window.getSelection()
+                  sel.removeAllRanges()
+                  sel.addRange(range)
+                }
+                document.execCommand('insertImage', false, dataUrl)
+                setInvitationText(el.innerHTML)
+              }
+              reader.readAsDataURL(file)
+            }}
+            dangerouslySetInnerHTML={{ __html: invitationText }}
+            className="text-[10px] text-slate-600 leading-relaxed outline-none border border-transparent hover:border-slate-300 focus:border-blue-500 p-1.5 rounded transition-all cursor-pointer font-medium [&_img]:max-w-full [&_img]:h-auto [&_img]:rounded [&_img]:my-1.5">
           </div>
           <div className="absolute right-1 top-1 text-[8px] text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none select-none">
             <i className="fa-solid fa-pen-to-magic text-xs"></i>
@@ -655,7 +690,7 @@ function PrintableReport({ clientName, projectName, sqft, landscapeSqft, strateg
             <span className="font-bold text-slate-800">{formatPKR(subtotal)}</span>
           </div>
           <div className="flex justify-between text-slate-600 font-medium">
-            <span>Sales Tax (SRB) Amount:</span>
+            <span>Sales Tax Amount:</span>
             <span className="font-bold text-slate-800">{formatPKR(tax)}</span>
           </div>
           <div className="flex justify-between text-slate-900 font-black border-t border-slate-200 pt-1 text-[11px]">
@@ -784,6 +819,9 @@ function SpreadsheetView({ deliverables, setDeliverables, sqft, landscapeSqft, s
   }
 
   function removeRow(id) {
+    const target = deliverables.find(i => i.id === id)
+    const label = target ? (target.isParent ? target.description : target.description.replace(/^↳\s*(?:\d+\.\s*)?/, '').trim()) : 'this item'
+    if (!confirmDelete(label)) return
     setDeliverables(prev => {
       const target = prev.find(i => i.id === id)
       let next = prev.filter(i => i.id !== id)
@@ -870,14 +908,14 @@ function SpreadsheetView({ deliverables, setDeliverables, sqft, landscapeSqft, s
                     </div>
                   </td>
                   <td className="py-2 px-3 text-right">
-                    <input type="number" defaultValue={rate} onBlur={e => editRate(item.id, e.target.value)}
+                    <input type="text" inputMode="decimal" onFocus={e => e.target.select()} defaultValue={rate} onBlur={e => editRate(item.id, e.target.value)}
                       className="w-16 text-right pr-1 py-0.5 bg-white border border-slate-200 rounded text-[11px] font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500" />
                   </td>
                   <td className="py-2 px-3 text-right text-slate-600 font-medium select-none">{item.checked ? Number(area).toLocaleString() : '0'}</td>
                   <td className="py-2 px-3 text-right font-bold text-slate-800">{formatPKR(rowTotal)}</td>
                   <td className="py-2 px-3 text-center">
                     <div className="inline-flex items-center justify-center">
-                      <input type="number" defaultValue={tax} min="0" max="100" onBlur={e => editTax(item.id, e.target.value)}
+                      <input type="text" inputMode="decimal" onFocus={e => e.target.select()} defaultValue={tax} min="0" max="100" onBlur={e => editTax(item.id, e.target.value)}
                         className="w-12 text-center py-0.5 bg-white border border-slate-200 rounded text-[11px] font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500" />
                       <span className="text-slate-400 ml-0.5">%</span>
                     </div>
@@ -925,6 +963,7 @@ function MilestonesPanel({ milestones, setMilestones, subtotal, tax, grandTotal 
   }
   function removeRow(idx) {
     if (milestones.length <= 1) return
+    if (!confirmDelete(milestones[idx]?.label || 'this milestone')) return
     setMilestones(prev => prev.filter((_, i) => i !== idx))
   }
   function evenSplit() {
@@ -964,7 +1003,7 @@ function MilestonesPanel({ milestones, setMilestones, subtotal, tax, grandTotal 
                 <div className="flex items-center space-x-1.5 flex-shrink-0">
                   <span className="text-slate-400 font-medium">Ratio:</span>
                   <div className="relative w-14">
-                    <input type="number" value={stone.ratio} min="0" max="100" onChange={e => updateRatio(idx, e.target.value)}
+                    <input type="text" inputMode="decimal" onFocus={e => e.target.select()} value={stone.ratio} min="0" max="100" onChange={e => updateRatio(idx, e.target.value)}
                       className="w-full text-right pr-4 pl-1.5 py-0.5 bg-slate-50 border border-slate-200 rounded font-bold text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500 text-[11px]" />
                     <span className="absolute inset-y-0 right-1.5 flex items-center text-[9px] text-slate-400 font-bold select-none">%</span>
                   </div>
@@ -999,20 +1038,33 @@ function MilestonesPanel({ milestones, setMilestones, subtotal, tax, grandTotal 
   )
 }
 
-function TimelinePanel({ timelinePhases, setTimelinePhases }) {
+function TimelinePanel({ timelinePhases, setTimelinePhases, deliverables, projectDurationMonths, setProjectDurationMonths, packageDurations, setPackageDurations }) {
   function updateProp(idx, key, val) {
     setTimelinePhases(prev => prev.map((p, i) => i === idx ? { ...p, [key]: val } : p))
   }
   function addPhase() {
     const n = timelinePhases.length + 1
-    setTimelinePhases(prev => [...prev, { title:`Project Stage ${n}`, days:30, badge:`Phase ${n}` }])
+    setTimelinePhases(prev => [...prev, { title:`Buffer / Custom Item ${n}`, days:0, badge:`Extra ${n}` }])
   }
   function removePhase(idx) {
-    if (timelinePhases.length <= 1) return
+    if (!confirmDelete(timelinePhases[idx]?.title || 'this item')) return
     setTimelinePhases(prev => prev.filter((_, i) => i !== idx))
   }
-  const totalDays = timelinePhases.reduce((s, p) => s + (p.days || 0), 0)
+
+  // Dynamic list — every currently-selected (Step 2) top-level package, grouped by its section, in the order it appears in Step 2.
+  const selectedPackages = (deliverables || []).filter(i => i.isParent && i.checked)
+  function setPackageDays(id, val) {
+    const days = Math.max(0, parseInt(val) || 0)
+    setPackageDurations(prev => ({ ...prev, [id]: days }))
+  }
+  const packageDaysTotal = selectedPackages.reduce((s, item) => s + (Number(packageDurations?.[item.id]) || 0), 0)
+  const extraDaysTotal = timelinePhases.reduce((s, p) => s + (p.days || 0), 0)
+  const totalDays = packageDaysTotal + extraDaysTotal
   const totalMonths = (totalDays / 30).toFixed(1)
+  const masterMonths = Number(projectDurationMonths) || 0
+  const overBudget = masterMonths > 0 && (totalDays / 30) > masterMonths
+
+  let lastSection = null
 
   return (
     <div className="border border-slate-200 rounded-xl p-3 bg-slate-50/50 space-y-3">
@@ -1020,46 +1072,102 @@ function TimelinePanel({ timelinePhases, setTimelinePhases }) {
         <h3 className="font-bold text-slate-950 text-[12px] flex items-center">
           <i className="fa-solid fa-calendar-days mr-1.5 text-blue-600"></i> Schedule Timeline Assumptions
         </h3>
-        <button onClick={addPhase} className="text-[9px] bg-blue-600 hover:bg-blue-700 text-white font-bold px-2 py-0.5 rounded shadow-sm transition-colors">+ Add Phase</button>
       </div>
-      <div className="space-y-2">
-        {timelinePhases.map((phase, idx) => (
-          <div key={idx} className="p-2 bg-white border border-slate-100 rounded-lg flex flex-col space-y-1.5 shadow-sm">
-            <div className="flex items-center justify-between gap-1.5">
-              <div className="flex-grow grid grid-cols-12 gap-1.5">
-                <div className="col-span-6">
-                  <input type="text" value={phase.title} onChange={e => updateProp(idx, 'title', e.target.value)}
-                    className="w-full text-xs font-semibold text-slate-800 bg-slate-50 hover:bg-slate-100/50 focus:bg-white border border-slate-200 rounded px-1.5 py-0.5 focus:outline-none" />
+
+      {/* Master project duration — same value used for the Resident Team cost in Step 1, kept in sync */}
+      <div className="flex items-center justify-between bg-white border border-slate-200 rounded-lg p-2.5">
+        <span className="text-[11px] font-bold text-slate-700">Total Project Duration</span>
+        <div className="relative w-24">
+          <input type="text" inputMode="decimal" onFocus={e => e.target.select()} min="0" value={projectDurationMonths}
+            onChange={e => setProjectDurationMonths(parseInt(e.target.value) || 0)}
+            className="w-full text-right pr-9 pl-2 py-1 bg-slate-50 border border-slate-200 rounded font-bold text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500 text-xs" />
+          <span className="absolute inset-y-0 right-2 flex items-center text-[9px] font-bold text-slate-400 select-none">Mo.</span>
+        </div>
+      </div>
+
+      {/* Sub-project / package durations — pulled live from what's checked in Step 2 */}
+      <div className="space-y-1.5">
+        <p className="text-[9px] font-extrabold uppercase text-slate-400 tracking-wider px-0.5">Sub-Project Durations (from Step 2 selections)</p>
+        {selectedPackages.length === 0 ? (
+          <div className="text-[10px] text-slate-400 italic bg-white border border-dashed border-slate-200 rounded-lg p-3 text-center">
+            No packages selected yet in Step 2 — tick deliverables there and they'll appear here for you to set a duration.
+          </div>
+        ) : (
+          <div className="space-y-1">
+            {selectedPackages.map(item => {
+              const showSectionHeader = item.section !== lastSection
+              lastSection = item.section
+              const days = Number(packageDurations?.[item.id]) || 0
+              return (
+                <div key={item.id}>
+                  {showSectionHeader && (
+                    <div className="text-[8px] font-extrabold uppercase text-blue-500 tracking-wider px-1 pt-1.5 pb-0.5">{item.section}</div>
+                  )}
+                  <div className="flex items-center justify-between gap-2 bg-white border border-slate-100 rounded-lg px-2.5 py-1.5 shadow-sm">
+                    <span className="text-[11px] font-semibold text-slate-700 truncate pr-2">{item.description}</span>
+                    <div className="flex items-center gap-1.5 flex-shrink-0">
+                      <div className="relative w-16">
+                        <input type="text" inputMode="decimal" onFocus={e => e.target.select()} min="0" value={days} onChange={e => setPackageDays(item.id, e.target.value)}
+                          className="w-full text-right pr-5 pl-1 py-0.5 bg-slate-50 border border-slate-200 rounded font-bold text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500 text-[11px]" />
+                        <span className="absolute inset-y-0 right-1 flex items-center text-[8px] font-bold text-slate-400 select-none">d</span>
+                      </div>
+                      <span className="text-[9px] text-slate-400 w-14 text-right">~{(days / 30).toFixed(1)} Mo.</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="col-span-3 relative">
-                  <input type="number" value={phase.days} onChange={e => updateProp(idx, 'days', parseInt(e.target.value) || 0)}
-                    className="w-full text-xs font-bold text-slate-800 text-right bg-slate-50 hover:bg-slate-100/50 focus:bg-white border border-slate-200 rounded pl-1 pr-5 py-0.5 focus:outline-none" min="0" />
-                  <span className="absolute inset-y-0 right-1.5 flex items-center text-[8px] font-bold text-slate-400 select-none">d</span>
+              )
+            })}
+          </div>
+        )}
+      </div>
+
+      {/* Optional extra buffer / custom items, not tied to a Step 2 package */}
+      <div className="space-y-1.5">
+        <div className="flex justify-between items-center px-0.5">
+          <p className="text-[9px] font-extrabold uppercase text-slate-400 tracking-wider">Additional / Buffer Items (optional)</p>
+          <button onClick={addPhase} className="text-[9px] bg-blue-600 hover:bg-blue-700 text-white font-bold px-2 py-0.5 rounded shadow-sm transition-colors">+ Add</button>
+        </div>
+        {timelinePhases.length === 0 ? (
+          <p className="text-[10px] text-slate-400 italic px-1">None added.</p>
+        ) : (
+          <div className="space-y-1.5">
+            {timelinePhases.map((phase, idx) => (
+              <div key={idx} className="p-2 bg-white border border-slate-100 rounded-lg flex items-center gap-1.5 shadow-sm">
+                <div className="flex-grow grid grid-cols-12 gap-1.5">
+                  <div className="col-span-7">
+                    <input type="text" value={phase.title} onChange={e => updateProp(idx, 'title', e.target.value)}
+                      className="w-full text-xs font-semibold text-slate-800 bg-slate-50 hover:bg-slate-100/50 focus:bg-white border border-slate-200 rounded px-1.5 py-0.5 focus:outline-none" />
+                  </div>
+                  <div className="col-span-5 relative">
+                    <input type="text" inputMode="decimal" onFocus={e => e.target.select()} value={phase.days} onChange={e => updateProp(idx, 'days', parseInt(e.target.value) || 0)}
+                      className="w-full text-xs font-bold text-slate-800 text-right bg-slate-50 hover:bg-slate-100/50 focus:bg-white border border-slate-200 rounded pl-1 pr-5 py-0.5 focus:outline-none" min="0" />
+                    <span className="absolute inset-y-0 right-1.5 flex items-center text-[8px] font-bold text-slate-400 select-none">d</span>
+                  </div>
                 </div>
-                <div className="col-span-3">
-                  <input type="text" value={phase.badge} onChange={e => updateProp(idx, 'badge', e.target.value)}
-                    className="w-full text-[9px] uppercase font-bold text-slate-500 text-center bg-slate-50 hover:bg-slate-100/50 focus:bg-white border border-slate-200 rounded px-1 py-0.5 focus:outline-none" />
-                </div>
-              </div>
-              {timelinePhases.length > 1 && (
                 <button onClick={() => removePhase(idx)} className="text-slate-300 hover:text-red-500 transition-colors px-1">
                   <i className="fa-solid fa-trash-can text-xs"></i>
                 </button>
-              )}
-            </div>
-            <div className="text-[9px] text-slate-400 text-right pr-1">Estimated duration: ~{(phase.days / 30).toFixed(1)} Months</div>
+              </div>
+            ))}
           </div>
-        ))}
+        )}
       </div>
+
       <div className="bg-blue-50 border border-blue-100 text-blue-800 text-[11px] p-2.5 rounded-lg font-bold flex justify-between items-center mt-1">
-        <span>Commencement to Total Handover:</span>
+        <span>Sum of Sub-Project Durations:</span>
         <span className="text-xs text-blue-950 font-black">{totalDays} Days (~{totalMonths} Months)</span>
       </div>
+      {overBudget && (
+        <div className="bg-red-50 border border-red-200 text-red-700 text-[10px] p-2.5 rounded-lg font-bold flex items-center gap-1.5">
+          <i className="fa-solid fa-triangle-exclamation"></i>
+          <span>Sub-project total (~{totalMonths} months) exceeds the Total Project Duration ({masterMonths} {masterMonths === 1 ? 'month' : 'months'}).</span>
+        </div>
+      )}
     </div>
   )
 }
 
-// ─── NEW: Landscaping Panel (rate × landscape area, selectable/unselectable like the main table) ──
+// ─── Landscaping Panel (rate × landscape area, selectable/unselectable like the main table) ──
 function LandscapingPanel({ deliverables, setDeliverables, landscapeSqft, strategy }) {
   const items = deliverables.filter(i => i.section === 'Landscaping')
   const ids = items.map(i => i.id)
@@ -1082,6 +1190,8 @@ function LandscapingPanel({ deliverables, setDeliverables, landscapeSqft, strate
     }))
   }
   function removeRow(id) {
+    const target = items.find(i => i.id === id)
+    if (!confirmDelete(target?.description || 'this item')) return
     setDeliverables(prev => prev.filter(item => item.id !== id))
   }
   function addRow() {
@@ -1134,7 +1244,7 @@ function LandscapingPanel({ deliverables, setDeliverables, landscapeSqft, strate
                       className="w-full bg-transparent border-b border-transparent hover:border-slate-300 focus:border-blue-500 focus:outline-none text-slate-700 font-medium" />
                   </td>
                   <td className="py-1.5 px-2 text-right">
-                    <input type="number" defaultValue={rate} onBlur={e => editRate(it.id, e.target.value)}
+                    <input type="text" inputMode="decimal" onFocus={e => e.target.select()} defaultValue={rate} onBlur={e => editRate(it.id, e.target.value)}
                       className="w-16 text-right px-1 py-0.5 bg-white border border-slate-200 rounded font-semibold text-slate-800" />
                   </td>
                   <td className="py-1.5 px-2 text-right text-slate-600 font-medium select-none">{it.checked ? Number(landscapeSqft || 0).toLocaleString() : '0'}</td>
@@ -1158,7 +1268,7 @@ function LandscapingPanel({ deliverables, setDeliverables, landscapeSqft, strate
   )
 }
 
-// ─── NEW: Top Supervision Panel (No. of Visits × Rate per Visit) ─────────────
+// ─── Top Supervision Panel (No. of Visits × Rate per Visit) ─────────────
 function TopSupervisionPanel({ items, setItems }) {
   function updateField(idx, key, val) {
     setItems(prev => prev.map((it, i) => i === idx ? { ...it, [key]: key === 'position' ? val : (parseFloat(val) || 0) } : it))
@@ -1173,6 +1283,7 @@ function TopSupervisionPanel({ items, setItems }) {
     setItems(prev => [...prev, { id: `sup_${Date.now()}`, position: 'New Position — Site Visits', visits: 0, rate: 0, checked: true }])
   }
   function removeRow(idx) {
+    if (!confirmDelete(items[idx]?.position || 'this row')) return
     setItems(prev => prev.filter((_, i) => i !== idx))
   }
   const subtotal = getSupervisionTotal(items)
@@ -1216,11 +1327,11 @@ function TopSupervisionPanel({ items, setItems }) {
                       className="w-full bg-transparent border-b border-transparent hover:border-slate-300 focus:border-blue-500 focus:outline-none text-slate-700 font-medium" />
                   </td>
                   <td className="py-1.5 px-2 text-right">
-                    <input type="number" value={it.visits} onChange={e => updateField(idx, 'visits', e.target.value)}
+                    <input type="text" inputMode="decimal" onFocus={e => e.target.select()} value={it.visits} onChange={e => updateField(idx, 'visits', e.target.value)}
                       className="w-16 text-right px-1 py-0.5 bg-white border border-slate-200 rounded font-semibold text-slate-800" />
                   </td>
                   <td className="py-1.5 px-2 text-right">
-                    <input type="number" value={it.rate} onChange={e => updateField(idx, 'rate', e.target.value)}
+                    <input type="text" inputMode="decimal" onFocus={e => e.target.select()} value={it.rate} onChange={e => updateField(idx, 'rate', e.target.value)}
                       className="w-20 text-right px-1 py-0.5 bg-white border border-slate-200 rounded font-semibold text-slate-800" />
                   </td>
                   <td className="py-1.5 px-2 text-right font-bold text-slate-800">{formatPKR(rowTotal)}</td>
@@ -1240,7 +1351,7 @@ function TopSupervisionPanel({ items, setItems }) {
   )
 }
 
-// ─── NEW: Resident Engineering & Supervision Team Panel (Personnel × Monthly Cost × Duration) ──
+// ─── Resident Engineering & Supervision Team Panel (Personnel × Monthly Cost × Duration) ──
 function ResidentTeamPanel({ items, setItems, months }) {
   function updateField(idx, key, val) {
     setItems(prev => prev.map((it, i) => i === idx ? { ...it, [key]: key === 'position' ? val : (parseFloat(val) || 0) } : it))
@@ -1255,6 +1366,7 @@ function ResidentTeamPanel({ items, setItems, months }) {
     setItems(prev => [...prev, { id: `res_${Date.now()}`, position: 'New Position', personnel: 1, monthlyCost: 0, checked: true }])
   }
   function removeRow(idx) {
+    if (!confirmDelete(items[idx]?.position || 'this row')) return
     setItems(prev => prev.filter((_, i) => i !== idx))
   }
   const subtotal = getResidentTeamTotal(items, months)
@@ -1298,11 +1410,11 @@ function ResidentTeamPanel({ items, setItems, months }) {
                       className="w-full bg-transparent border-b border-transparent hover:border-slate-300 focus:border-blue-500 focus:outline-none text-slate-700 font-medium" />
                   </td>
                   <td className="py-1.5 px-2 text-right">
-                    <input type="number" value={it.personnel} onChange={e => updateField(idx, 'personnel', e.target.value)}
+                    <input type="text" inputMode="decimal" onFocus={e => e.target.select()} value={it.personnel} onChange={e => updateField(idx, 'personnel', e.target.value)}
                       className="w-14 text-right px-1 py-0.5 bg-white border border-slate-200 rounded font-semibold text-slate-800" />
                   </td>
                   <td className="py-1.5 px-2 text-right">
-                    <input type="number" value={it.monthlyCost} onChange={e => updateField(idx, 'monthlyCost', e.target.value)}
+                    <input type="text" inputMode="decimal" onFocus={e => e.target.select()} value={it.monthlyCost} onChange={e => updateField(idx, 'monthlyCost', e.target.value)}
                       className="w-20 text-right px-1 py-0.5 bg-white border border-slate-200 rounded font-semibold text-slate-800" />
                   </td>
                   <td className="py-1.5 px-2 text-right font-bold text-slate-800">{formatPKR(rowTotal)}</td>
@@ -1325,7 +1437,7 @@ function ResidentTeamPanel({ items, setItems, months }) {
   )
 }
 
-// ─── NEW: Negative List Panel (items not included / excluded from scope — starts empty) ──
+// ─── Negative List Panel (items not included / excluded from scope — starts empty) ──
 function NegativeListPanel({ title, setTitle, items, setItems }) {
   const [draft, setDraft] = useState('')
   function addItem() {
@@ -1334,6 +1446,8 @@ function NegativeListPanel({ title, setTitle, items, setItems }) {
     setDraft('')
   }
   function removeItem(id) {
+    const target = items.find(i => i.id === id)
+    if (!confirmDelete(target?.text || 'this item')) return
     setItems(prev => prev.filter(i => i.id !== id))
   }
   return (
@@ -1380,6 +1494,7 @@ export default function App() {
   const [deliverables, setDeliverables] = useState(JSON.parse(JSON.stringify(INITIAL_DELIVERABLES)))
   const [milestones, setMilestones] = useState(JSON.parse(JSON.stringify(INITIAL_MILESTONES)))
   const [timelinePhases, setTimelinePhases] = useState(JSON.parse(JSON.stringify(INITIAL_TIMELINE)))
+  const [packageDurations, setPackageDurations] = useState({})
   const [topSupervisionItems, setTopSupervisionItems] = useState(JSON.parse(JSON.stringify(INITIAL_TOP_SUPERVISION)))
   const [residentTeamItems, setResidentTeamItems] = useState(JSON.parse(JSON.stringify(INITIAL_RESIDENT_TEAM)))
   const [reportMode, setReportMode] = useState('summary') // 'summary' | 'detailed'
@@ -1514,13 +1629,14 @@ export default function App() {
     setDeliverables(JSON.parse(JSON.stringify(INITIAL_DELIVERABLES)))
     setMilestones(JSON.parse(JSON.stringify(INITIAL_MILESTONES)))
     setTimelinePhases(JSON.parse(JSON.stringify(INITIAL_TIMELINE)))
+    setPackageDurations({})
     setTopSupervisionItems(JSON.parse(JSON.stringify(INITIAL_TOP_SUPERVISION)))
     setResidentTeamItems(JSON.parse(JSON.stringify(INITIAL_RESIDENT_TEAM)))
     setReportMode('summary')
     setNegativeListTitle('Negative List')
     setNegativeListItems([])
     setCurrentStep(1)
-    showNotif('New Quotation Initialized', 'Client details, square footage and plan matrices have been reset to a pristine draft.')
+    showNotif('New Quotation Initialized', 'Client details, square footage and plan matrices have been reset to a pristine draft. All deliverable lists start unselected — pick what applies in Step 2.')
   }
 
   function triggerSaveVersion(forceSaveAsNew = false) {
@@ -1536,6 +1652,7 @@ export default function App() {
       timestamp: new Date().toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' }),
       milestones: JSON.parse(JSON.stringify(milestones)),
       timelinePhases: JSON.parse(JSON.stringify(timelinePhases)),
+      packageDurations: JSON.parse(JSON.stringify(packageDurations)),
       deliverables: JSON.parse(JSON.stringify(deliverables)),
       topSupervisionItems: JSON.parse(JSON.stringify(topSupervisionItems)),
       residentTeamItems: JSON.parse(JSON.stringify(residentTeamItems)),
@@ -1809,6 +1926,7 @@ export default function App() {
     setLoadedVersionId(config.id)
     if (config.milestones) setMilestones(JSON.parse(JSON.stringify(config.milestones)))
     if (config.timelinePhases) setTimelinePhases(JSON.parse(JSON.stringify(config.timelinePhases)))
+    setPackageDurations(config.packageDurations ? JSON.parse(JSON.stringify(config.packageDurations)) : {})
     if (config.deliverables) setDeliverables(JSON.parse(JSON.stringify(config.deliverables)))
     else setDeliverables(JSON.parse(JSON.stringify(INITIAL_DELIVERABLES)))
     setTopSupervisionItems(config.topSupervisionItems ? JSON.parse(JSON.stringify(config.topSupervisionItems)) : JSON.parse(JSON.stringify(INITIAL_TOP_SUPERVISION)))
@@ -2004,7 +2122,7 @@ export default function App() {
                       {versionSearch ? `Search Results (${displayedVersions.length})` : `All Saved Proposals (${displayedVersions.length})`}
                     </p>
                   </div>
-                  <div className="max-h-[40vh] overflow-y-auto custom-scrollbar divide-y divide-slate-100 font-sans">
+                  <div className="max-h-72 overflow-y-auto custom-scrollbar divide-y divide-slate-100 font-sans">
                     {displayedVersions.length === 0
                       ? <div className="text-center py-5 text-slate-400 text-[10px]"><i className="fa-solid fa-box-open text-xs mb-1 block"></i>No versions archived yet</div>
                       : displayedVersions.map(p => (
@@ -2118,7 +2236,7 @@ export default function App() {
                       <label className="block text-[10px] font-bold uppercase text-slate-500 tracking-wider mb-1">Total Square Footage (Sq. Ft.)</label>
                       <div className="relative">
                         <span className="absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400"><i className="fa-solid fa-ruler-combined text-xs"></i></span>
-                        <input type="number" value={sqft} onChange={e => setSqft(parseInt(e.target.value) || 0)}
+                        <input type="text" inputMode="decimal" onFocus={e => e.target.select()} value={sqft} onChange={e => setSqft(parseInt(e.target.value) || 0)}
                           className="w-full pl-8 pr-10 py-1.5 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 font-semibold text-xs text-slate-800" />
                         <span className="absolute inset-y-0 right-0 pr-2.5 flex items-center text-[9px] font-bold text-slate-400 select-none">SqFt</span>
                       </div>
@@ -2141,7 +2259,7 @@ export default function App() {
                       <label className="block text-[10px] font-bold uppercase text-slate-500 tracking-wider mb-1">Landscape Area (Sq. Ft.)</label>
                       <div className="relative">
                         <span className="absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400"><i className="fa-solid fa-tree text-xs"></i></span>
-                        <input type="number" value={landscapeSqft} onChange={e => setLandscapeSqft(parseInt(e.target.value) || 0)}
+                        <input type="text" inputMode="decimal" onFocus={e => e.target.select()} value={landscapeSqft} onChange={e => setLandscapeSqft(parseInt(e.target.value) || 0)}
                           className="w-full pl-8 pr-10 py-1.5 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 font-semibold text-xs text-slate-800" />
                         <span className="absolute inset-y-0 right-0 pr-2.5 flex items-center text-[9px] font-bold text-slate-400 select-none">SqFt</span>
                       </div>
@@ -2150,7 +2268,7 @@ export default function App() {
                       <label className="block text-[10px] font-bold uppercase text-slate-500 tracking-wider mb-1">Project Duration (Months)</label>
                       <div className="relative">
                         <span className="absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400"><i className="fa-solid fa-hourglass-half text-xs"></i></span>
-                        <input type="number" value={projectDurationMonths} onChange={e => setProjectDurationMonths(parseInt(e.target.value) || 0)}
+                        <input type="text" inputMode="decimal" onFocus={e => e.target.select()} value={projectDurationMonths} onChange={e => setProjectDurationMonths(parseInt(e.target.value) || 0)}
                           className="w-full pl-8 pr-10 py-1.5 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 font-semibold text-xs text-slate-800" />
                         <span className="absolute inset-y-0 right-0 pr-2.5 flex items-center text-[9px] font-bold text-slate-400 select-none">Mo.</span>
                       </div>
@@ -2193,7 +2311,7 @@ export default function App() {
             <div className="p-4 flex-1 min-h-0 flex flex-col space-y-4 overflow-y-auto custom-scrollbar">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <MilestonesPanel milestones={milestones} setMilestones={setMilestones} subtotal={subtotal} tax={tax} grandTotal={grandTotal} />
-                <TimelinePanel timelinePhases={timelinePhases} setTimelinePhases={setTimelinePhases} />
+                <TimelinePanel timelinePhases={timelinePhases} setTimelinePhases={setTimelinePhases} deliverables={deliverables} projectDurationMonths={projectDurationMonths} setProjectDurationMonths={setProjectDurationMonths} packageDurations={packageDurations} setPackageDurations={setPackageDurations} />
               </div>
               <NegativeListPanel title={negativeListTitle} setTitle={setNegativeListTitle} items={negativeListItems} setItems={setNegativeListItems} />
               {/* Report */}
@@ -2251,7 +2369,7 @@ export default function App() {
                 else triggerSaveVersion(false)
               }} className="flex items-center justify-center space-x-1.5 px-4 h-9 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer">
                 {currentStep === 3
-                  ? <><span>{loadedVersionId ? 'UPDATE CURRENT VERSION' : 'SAVE & LOCK'}</span><i className="fa-solid fa-cloud-arrow-up text-[10px]"></i></>
+                  ? <><span>{loadedVersionId ? 'UPDATE CURRENT VERSION' : 'SAVE'}</span><i className="fa-solid fa-cloud-arrow-up text-[10px]"></i></>
                   : <><span>NEXT</span><i className="fa-solid fa-chevron-right text-[10px]"></i></>
                 }
               </button>
